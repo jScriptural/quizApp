@@ -167,8 +167,6 @@ function dropMenu(){
        cancel.style.display = "none";
    });
 let categories = document.querySelectorAll(".changeCategory");
-   // console.log(categories);
-  // progressbar.append(prog)
   let mathsquiz = mathsQuiz(0);
   let jsquiz = jsQuiz(0);
   
