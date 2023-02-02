@@ -26,7 +26,6 @@ import {javascript,css,html,subjects,maths} from "./question.js";
      `<h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1>`;
      logoCon.append(logo);
    let text = "WELCOME TO PIKIN QUIZ ";
-   //let miniText = "...widening your horizon"
    let display = document.createElement("h1");
    let animation = document.createElement("div");
    animation.append(display);
