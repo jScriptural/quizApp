@@ -241,7 +241,6 @@ function count(){
         selectedCategory = radbtn.value;
       };
      
-      //console.log(radbtn.checked);
     })
    }
    
