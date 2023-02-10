@@ -17,7 +17,7 @@
    position: relative;
  }
  
-#preloader {
+#preloader, #score-page {
   height: 100vh;
   background: #132030;
   z-index: 100;
@@ -73,9 +73,9 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-nav .logo h1 {
+.logo h1, .logo sup{
   color:#fff;
-  font-size:20px;
+  font-size:6vmin;
   margin-left: 10;
 }
 nav .material-icons {
@@ -83,9 +83,7 @@ nav .material-icons {
   color:#fff;
   margin:1% 2% 0 0;
 }
-nav .bars {
-  
-}
+
 nav .cancel{
   color: red;
   display:none;
@@ -148,35 +146,52 @@ nav .cancel{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 5px;
+  color: #fff;
+  overflow: scroll;
 }
 .question p {
   font-family: Sans-Serif;
   color: #fff;
-  margin: 5px;
+  margin: 2px;
+  font-size: 4.5vmin;
 }
 .options {
   /*border: 1px solid green;*/
   height: 55%;
-  margin: 5% 1%;
-  display: flex;
+  margin: 7% 1%;
+  /* display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
+  justify-content: space-between;*/
   
 }
 .option {
  /* border: 1px solid white;*/
-  display: flex;
+ /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;*/
   height: 45%;
+  margin: 2%;
 }
 .optionA, .optionB, .optionC, .optionD {
-  border: 1px solid orange;
-  width: 45%;
-  height: 40%;
-  margin: 4px;
-  border-radius: 20%;
+  border-bottom: 1px solid orange;
+ /* width: 96%;*/
+  height: 45%;
+ margin: 4px;
+ /* border-radius: 20%;
+  color: #fff;*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
+.opt p {
+  margin-left: 10px;
+  color: #fff;
+  
+}
+
 .btn1 {
   position: absolute;
   top: 80vh;
@@ -189,6 +204,7 @@ nav .cancel{
   text-align: center;
   font-family: courier, explora,cursive;
   color: #fff;
+  display: none;
 }
 .drop-down {
   border: 1px solid #7e7e7e;
@@ -197,7 +213,7 @@ nav .cancel{
   width: 0;
   z-index: 98;
   left: 99vw;
-  top: 5vh;
+  top: 0vh;
   display:none;
   overflow:hidden;
   
@@ -213,5 +229,106 @@ nav .cancel{
   text-align: center;
 }
 .changeCategory {
-  font-size: 56px;
+  font-size:56px;
+}
+
+#score-page {
+   display: none;
+}
+
+#score-page .image {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  /* border:1px solid red;*/
+    top: 10vh;
+}
+#score-page .image img {
+  width: 50%;
+  
+}
+.correct-wrong {
+  width: 100vw;
+  position: absolute;
+  top: 40vh;
+ /*border:1px solid blue;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:2px;
+}
+.correct, .wrong {
+  /*border: 1px solid green;*/
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding:4px;
+}
+.correct h1, .wrong h1 {
+  font-size: 4vmin;
+  color: #fff;
+  text-align: center;
+  font-family: cursive;
+}
+.correct div, .wrong div {
+  border:1px solid red;
+  width: 15vw;
+  height: 15vw;
+  margin-top: 10px;
+  font-family: cursive;
+  font-weight: 600;
+  font-size: 8vmin;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+}
+.score {
+ /* border: 1px solid red;*/
+  width: 100vw;
+  display:flex;
+  flex-flow: column wrap;
+  align-items: center;
+  position: absolute;
+  top: 63vh;
+  margin: 4px;
+}
+.score h1 {
+  color : #fff;
+  font-family: cursive;
+  font-size: 4vmin;
+  text-align: center;
+}
+.score .score-board {
+  border: 1px solid blue;
+  width: 15vw;
+  height: 15vw;
+  margin: 5px;
+  font-family: cursive;
+  font-size: 6vmin;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  
+}
+.comment {
+  position: absolute;
+  top: 80vh;
+  width: 90vw;
+  display:flex;
+  left: 5vw;
+  right: 5vw;
+  justify-content: center;
+  align-items: center;
+ /* border: 1px solid red;*/
+}
+.comment h1 {
+  font-size: 10vmin;
+  font-family: cursive;
+  text-align: center;
 }

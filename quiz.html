@@ -41,17 +41,42 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       <div class="question"></div>
       <div class="options">
         <div class="option optionAB">
-          <div class="optionA"></div>
-          <div class="optionB"></div>
-        </div>
-        <div class="option optionCD">
-          <div class="optionC"></div>
-          <div class="optionD"></div>
+          <div class="optionA opt"></div>
+          <div class="optionB opt"></div>
+        <!--</div>
+           <div class="option optionCD"> -->
+          <div class="optionC opt"></div>
+          <div class="optionD opt"></div>
         </div>
       </div>
     </div>
     <button class="btn1"><i class="fa fa-paper-plane"></i>SUBMIT</button>
     
-    <script src="quiz.js" type="module"></script>
+    <div id="score-page">
+      <div
+      class="logo"><h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1></div>
+      <div class="image"><img src="hi.jpg"></div>
+      <div class="correct-wrong">
+        <div class="correct">
+          <h1>NUMBER OF QUESTIONS CORRECTLY ANSWERED:</h1>
+          <div class="answered-correctly"></div>
+        </div>
+        <div class="wrong">
+          <h1>NUMBER OF QUESTIONS WRONGLY ANSWERED:</h1>
+          <div class="answered-wrongly"></div>
+        </div>         
+        </div>
+       <div class="score">
+         <h1>SCORE:</h1>
+        <div class="score-board"></div>
+        </div>      
+        <div class="comment">
+          <h1 class="remark"></h1>
+        </div>
+      </div>
+      
+
+    
+  <script src="quiz.js" type="module"></script>
   </body>
 </html>

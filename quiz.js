@@ -1,7 +1,19 @@
 
 import {$} from "./quizModule.js";
-import {javascript,css,html,subjects,maths} from "./question.js";
+import {javascript,html,css,subjects,maths,chem,bio,eng} from "./question.js";
  let selectedCategory;
+ let score = 0;
+ let correctly = 0;
+ let wrongly = 0;
+ let comment;
+ let tictac = [9,59];
+ let k= 0;
+ let [mins,secs] = tictac;
+
+ 
+
+  
+  
  function loader(){
     let preloader = document.getElementById("preloader");
     let proceed = document.createElement("div");
@@ -26,23 +38,25 @@ import {javascript,css,html,subjects,maths} from "./question.js";
      `<h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1>`;
      logoCon.append(logo);
    let text = "WELCOME TO PIKIN QUIZ ";
+   //let miniText = "...widening your horizon"
    let display = document.createElement("h1");
    let animation = document.createElement("div");
    animation.append(display);
    animation.classList.add("animation");
    preloader.append(animation,logoCon,proceed);
-  // preloader.append(logo);
     let interval = setInterval($.rotateColor(preloader),400);
     $.animateText(text,display);
     globalThis.addEventListener("load",(evt)=>{
       proceed.style.display = "block";
       proceed.addEventListener("click",(evt)=>{
         preloader.style.display = "none";
+        clearInterval(interval)
       });
     });
     
  }
 loader();
+
  function category(){
     let categoryPage = document.getElementById("category");
     let logoCon = document.querySelector(".logon");
@@ -86,8 +100,9 @@ loader();
     proceed.style.boxShadow="1px 2px 0px rgba(175,175,175)";
     proceed.style.display="none";
     categoryPage.append(proceed);
-    let mathsquiz = mathsQuiz(0);
-    let jsquiz = jsQuiz(0);
+  //  let mathsquiz = $.quiz(maths,0);
+   //let jsquiz = $.quiz(javascript,0);
+    
     value.forEach((radbutton)=>{
       radbutton.addEventListener('click',(evt)=>{
         directive.style.display = 'none';
@@ -99,19 +114,27 @@ loader();
           value.forEach((radbtn)=>{
             if(radbtn.checked){
               let checked = radbtn.value;
-              console.log(checked)
               switch(checked){
                 case "JavaScript":
                   jsquiz();
                   break;
                 case "CSS":
-                  cssQuiz();
+                  cssquiz();
                   break;
                 case "HTML":
-                  htmlQuiz();
+                  htmlquiz();
                   break;
                 case "Maths": 
                   mathsquiz();
+                  break;
+                case "Chemistry":
+                  chemquiz();
+                  break;
+                case "Biology":
+                  bioquiz();
+                  break;
+                case "English":
+                  engquiz();
                   break;
               }
             }
@@ -159,35 +182,66 @@ function dropMenu(){
      bars.style.display = "none";
      cancel.style.display = "block";
    });
-   
+   document.body.addEventListener('click',(evt)=>{
+     $.slideOut(menuCon,1);
+     bars.style.display = "block";
+     cancel.style.display = "none";
+   })
+   /*
   cancel.addEventListener("click",(evt)=>{
       $.slideOut(menuCon,1)
       bars.style.display = "block";
        cancel.style.display = "none";
    });
+   */
 let categories = document.querySelectorAll(".changeCategory");
-  let mathsquiz = mathsQuiz(0);
-  let jsquiz = jsQuiz(0);
+   // console.log(categories);
+  // progressbar.append(prog)
+  
   
     categories.forEach((list)=>{
       list.addEventListener("click",(evt)=>{
+           setTimeout(()=>{
+             list.style.backgroundColor = "red";
+             setTimeout(()=>{
+               list.style.backgroundColor = "rgba(105,136,160,100%)";
+             },50)
+           },0)
+let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz] =
+[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0)];
+ [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz] =
+ [$.quiz(maths,1),$.quiz(javascript,1),$.quiz(chem,1),$.quiz(html,1),
+ $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1)];
          let clicked = list.innerText;
           selectedCategory = clicked;
-          progress.style.width = "0px";
-          progressText.textContent = "" ;
-          value = 4;
+          [mins, secs] = tictac;
+          k=0;
+        correctly =0;
+        wrongly =0;
+         value = 4;
+        progressText.textContent = "";
+         progress.style.width = "0px";
         switch(clicked){
                 case "JavaScript":
-                  jsquiz();
+                  jsuiz();
                   break;
                 case "CSS":
-                  cssQuiz();
+                  cssuiz();
                   break;
                 case "HTML":
-                  htmlQuiz();
+                  htmluiz();
                   break;
                 case "Maths": 
-                  mathsquiz();
+                  mathsuiz();
+                  break;
+                case "Chemistry":
+                  chemuiz();
+                  break;
+                case "Biology":
+                  biouiz();
+                  break;
+                case "English":
+                  enguiz();
                   break;
               }
       });
@@ -199,21 +253,40 @@ dropMenu()
 function count(){
   let progressbar = document.querySelector(".progress");
   let countDown = document.querySelector(".timer");
-  let mins= 14;
-  let secs = 59;
   countDown.innerText = `${mins}:${secs}`;
   let timer = setInterval(()=>{
     --secs;
     if(secs == 0){
       --mins;
-      secs = 60;
+      secs = 59;
     };
-    if(mins == 0){
-      clearInterval(timer);
-    }
     let timeLeft = `${mins}:${secs}`;
     countDown.innerHTML = timeLeft;
-  },1000);
+    if(mins < 0){
+      clearInterval(timer)
+    
+    let remark = document.querySelector(".remark");
+      score = Math.round((correctly/25)*100)
+    if(score <= 20){
+      comment = "Poor performance!";
+      remark.style.color = "red";
+    }else if(score >20 && score <= 40){
+      comment = "Fair performance!";
+      remark.style.color = "yellow"
+    }else if(score >40 && score <= 60){
+      comment = "Good performance!";
+     remark.style.color = "yellow"
+    }else if(score > 60 && score <= 80){
+      comment = "Very good performance!";
+     remark.style.color = "yellow"
+    }else {
+      comment = "Excellence performance!";
+     remark.style.color = "green"
+    };
+      scorePage();
+      document.querySelector("#score-page").style.display = "block";
+    }
+  },50);
    globalThis.progress = document.createElement("div");
   progress.style.height = "99%";
   progress.style.borderRadius = "10px";
@@ -224,17 +297,15 @@ function count(){
   progressText.style.position = "absolute";
   let submit = document.querySelector(".btn1")
    globalThis.value = 4;
-   let mathsquiz =  mathsQuiz(1);
-   let jsquiz = jsQuiz(1);
+
   submit.addEventListener("click",()=>{
     $.updateProgress(progress,value);
     progressText.textContent = `${value}%`;
     if(value >=100) value = 96;
     value += 4;
-  //  let selectedCategory;
     let  startul = document.querySelectorAll(`input[name="options"]`);
     let categories = document.querySelectorAll(".changeCategory");
-    
+    let Options = document.querySelectorAll('input[name="answer"]');
    if(!selectedCategory){
     startul.forEach((radbtn)=>{
       if(radbtn.checked){
@@ -249,56 +320,106 @@ function count(){
                   jsquiz();
                   break;
                 case "CSS":
-                  cssQuiz();
+                  cssquiz();
                   break;
                 case "HTML":
-                  htmlQuiz();
+                  htmlquiz();
                   break;
                 case "Maths": 
                   mathsquiz();
                   break;
+                case "Chemistry":
+                  chemquiz();
+                  break;
+                case "Biology":
+                  bioquiz();
+                  break;
+                case "English":
+                  engquiz();
+                  break;
               }
-   //console.log(selectedCategory)
+   submit.style.display = "none";
+   
+   Options.forEach((radbtn)=>{
+     if(radbtn.checked){
+       let selectedAnswer = radbtn.value;
+       let correctAnswer = radbtn.dataset.answer;
+     /*  
+   switch(selectedCategory){
+                case "JavaScript":
+                  correctAnswer = javascript[k].answer;
+                  break;
+                case "CSS":
+                  correctAnswer = css[k].answer;
+                  break;
+                case "HTML":
+                correctAnswer = html[k].answer;
+                  break;
+                case "Maths": 
+                  correctAnswer = maths[k].answer;
+                  break;
+                case "Chemistry":
+                  correctAnswer = chem[k].answer;
+                  break;
+                case "Biology":
+                  correctAnswer = bio[k].answer;
+                case "English":
+                  correctAnswer = eng[k].answer;
+                  break;
+   }
+   */
+       selectedAnswer === correctAnswer?++correctly:++wrongly;
+       console.log(`sl=${selectedAnswer}: ca=${correctAnswer}`)
+       if(k === 24){
+         let remark = document.querySelector(".remark");
+         score = Math.round((correctly/25)*100)
+  if(score <= 20){
+      comment = "Poor performance!";
+      remark.style.color = "red";
+    }else if(score >20 && score <= 40){
+      comment = "Fair performance!";
+      remark.style.color = "yellow";
+    }else if(score >40 && score <= 60){
+      comment = "Good performance!";
+      remark.style.color = "yellow";
+    }else if(score > 60 && score <= 80){
+      comment = "Very good performance!";
+      remark.style.color = "yellow";
+    }else {
+      comment = "Excellence performance!";
+      remark.style.color = "green";
+    };
+         scorePage();
+         document.querySelector("#score-page").style.display = "block";
+       }
+      
+       ++k;
+       
+     }
+   })
+   
+   
   });
   
   progressbar.append(progressText);
 }
 
 
-function jsQuiz(i){
- //  let i = 0;
-  let question = document.querySelector(".question");
-  let optionA = document.querySelector(".optionA");
-  let optionB = document.querySelector(".optionB");
-  let optionC = document.querySelector(".optionC");
-  let optionD = document.querySelector("  .optionD");
-  let options = [optionA,optionB,optionC,optionD];
-   return function insert(){
-  question.innerHTML= `<p>${javascript[i].question}</p>`;
-       ++i;
-       console.log(i)
-  };
-  //console.log("here");
+function scorePage(){
+  let correctlyAnswer = document.querySelector(".answered-correctly");
+  let wronglyAnswer = document.querySelector(".answered-wrongly");
+  let scored = document.querySelector(".score-board");
+  let remark= document.querySelector(`.remark`);
+  remark.innerHTML = comment;
+  correctlyAnswer.innerHTML = correctly;
+  wronglyAnswer.innerHTML = wrongly;
+   scored.innerHTML = score+'%';
 }
-//let jsquiz = jsQuiz(0);
 
-
-
-function mathsQuiz(i){
- //let i = 0;
-  let question = document.querySelector(".question");
-  let optionA = document.querySelector(".optionA");
-  let optionB = document.querySelector(".optionB");
-  let optionC = document.querySelector(".optionC");
-  let optionD = document.querySelector("  .optionD");
-  let options = [optionA,optionB,optionC,optionD];
-   return function insert(){
-  question.innerHTML= `<p>${maths[i].question}</p>`;
-       ++i;
-       console.log(i)
-  };
-}
-//let mathsquiz = mathsQuiz(0);
-function htmlQuiz(){};
-function cssQuiz(){};
-
+let mathsquiz = $.quiz(maths,0);
+let jsquiz = $.quiz(javascript,0);
+let chemquiz  = $.quiz(chem,0);
+let bioquiz = $.quiz(bio,0);
+let cssquiz = $.quiz(css,0);
+let htmlquiz = $.quiz(html,0);
+let engquiz = $.quiz(eng,0);

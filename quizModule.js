@@ -1,4 +1,4 @@
-"use strict"
+
 export function $(){}
 export function isEmpty(obj){
   return !Object.keys(obj).length;
@@ -114,4 +114,89 @@ $.updateProgress = function(progElement,value){
 }
 
 
+$.unRoll = function(txt,display,duration=100){
+	let array = Array.from(txt);
+	let char = ""
+    let timer = setInterval(()=>{
+    char += array.shift();
+    display.textContent = char;
+   if(isEmpty(array)){
+    // proceed.style.display = "block";
+   	clearInterval(timer);
+   // let charset = Array.from(display.textContent);
+    
+   // let timer2 = setInterval(()=>{
+    //	charset.pop();
+    //	let reversedAction = charset.join("");
+     // display.textContent = reversedAction;
+      //  if(isEmpty(charset)){
+     // 	$.animateText("...",display,duration);
+     // 	clearInterval(timer2);
+    //  }
+   // },duration+200)
+   }
+    
+},duration)
 
+}
+
+
+$.quiz = function(selectedCategory,i){
+  let question = document.querySelector(".question");
+  let optionA = document.querySelector(".optionA");
+  let optionB = document.querySelector(".optionB");
+  let optionC = document.querySelector(".optionC");
+  let optionD = document.querySelector("  .optionD");
+  let options = [optionA,optionB,optionC,optionD];
+  return function(){
+    if(i == 25)return;
+  question.innerHTML= `<p>${selectedCategory[i].question}</p>`;
+      for(let j =0; j < options.length; ++j){
+        options[j].innerHTML = `<p><input type="radio"
+        value="${selectedCategory[i].options[j]}"
+        name="answer" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
+      }
+      console.log(i)
+       ++i;
+      document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
+         radbtn.addEventListener("click",evt=>{
+           document.querySelector(".btn1").style.display = "block";
+         })
+       })
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*
+function mathsQuiz(i){
+ //let i = 0;
+  let question = document.querySelector(".question");
+  let optionA = document.querySelector(".optionA");
+  let optionB = document.querySelector(".optionB");
+  let optionC = document.querySelector(".optionC");
+  let optionD = document.querySelector("  .optionD");
+  let options = [optionA,optionB,optionC,optionD];
+   return function insert(){
+     if(i == 25)return;
+  question.innerHTML= `<p>${maths[i].question}</p>`;
+      for(let j =0; j < options.length; ++j){
+        options[j].innerHTML = `<input type="radio"
+        value="${maths[i].options[j]}" name="answer">&nbsp;&nbsp;${maths[i].options[j]}`;
+      }
+       ++i;
+      document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
+         radbtn.addEventListener("click",evt=>{
+           document.querySelector(".btn1").style.display = "block";
+         })
+       })
+  };
+}
+*/
