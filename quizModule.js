@@ -151,13 +151,44 @@ $.quiz = function(selectedCategory,i){
   return function(){
     if(i == 25)return;
   question.innerHTML= `<p>${selectedCategory[i].question}</p>`;
-      for(let j =0; j < options.length; ++j){
+      for(let j = 0; j < options.length; ++j){
         options[j].innerHTML = `<p><input type="radio"
         value="${selectedCategory[i].options[j]}"
         name="answer" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
       }
+      
+      function write(){
+        let container = document.querySelector(".questions-answers");
+        let question = document.createElement("div");
+        let optionA = document.createElement("div");
+        let optionB = document.createElement("div");
+        let optionC = document.createElement("div");
+        let optionD = document.createElement("div");
+  question.innerHTML= `<p>${selectedCategory[i].question}</p>`;
+let option = [optionA,optionB,optionC,optionD];
+   for(let j = 0; j < option.length; ++j){
+        option[j].innerHTML = `<p class="para"><input type="radio"
+        value="${selectedCategory[i].options[j]}"
+        name="check-answer" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
+        container.append(question,optionA,optionB,optionC,optionD);
+      }
+      /*
+      option.forEach(opt=>{
+        console.log(opt)
+        let input = document.querySelector("opt + p input");
+        if(input.value === input.dataset.answer){
+          opt.style.backgroundColor = "blue";
+          return;
+        }
+      })
+      */
+    
+  }
+  write();
+  
       console.log(i)
        ++i;
+
       document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
          radbtn.addEventListener("click",evt=>{
            document.querySelector(".btn1").style.display = "block";

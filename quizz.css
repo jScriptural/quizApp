@@ -138,6 +138,20 @@ nav .cancel{
   height: 50vh;
   top: 25vh;
 }
+header {
+  width: 100%;
+  /*border:1px solid red;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6vmin;
+}
+header div h1{
+  font-size: 6vmin;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  color: rgba(275,0,0,100%);
+}
 .question {
   border: 1px solid blue;
   margin: 3%;
@@ -294,7 +308,7 @@ nav .cancel{
   flex-flow: column wrap;
   align-items: center;
   position: absolute;
-  top: 63vh;
+  top: 60vh;
   margin: 4px;
 }
 .score h1 {
@@ -318,7 +332,7 @@ nav .cancel{
 }
 .comment {
   position: absolute;
-  top: 80vh;
+  top: 78vh;
   width: 90vw;
   display:flex;
   left: 5vw;
@@ -331,4 +345,32 @@ nav .cancel{
   font-size: 10vmin;
   font-family: cursive;
   text-align: center;
+}
+sup, sub {
+  font-size: 3vmin;
+}
+.answer-con {
+  position: absolute;
+  top: 85vh;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-page {
+  color:blue;
+  font-family: Sans-Serif;
+  width: 45vw;
+  height: 4vh;
+  border-radius: 2%;
+}
+.questions-answers {
+  z-index: 101;
+  border: 1px solid red;
+  width: 100%;
+  height: 38%;
+  overflow: scroll;
+  position: absolute;
+  background: #fff;
+  display: none;
 }

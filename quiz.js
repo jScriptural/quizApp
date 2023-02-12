@@ -1,6 +1,7 @@
 
 import {$} from "./quizModule.js";
-import {javascript,html,css,subjects,maths,chem,bio,eng} from "./question.js";
+import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js";
+ let duration = 50;
  let selectedCategory;
  let score = 0;
  let correctly = 0;
@@ -114,6 +115,8 @@ loader();
           value.forEach((radbtn)=>{
             if(radbtn.checked){
               let checked = radbtn.value;
+              document.querySelector("header div").innerHTML =
+              `<h1>${checked} MCQ</h1>`
               switch(checked){
                 case "JavaScript":
                   jsquiz();
@@ -136,12 +139,13 @@ loader();
                 case "English":
                   engquiz();
                   break;
+                case "Physics":
+                  phyquiz();
+                  break;
               }
             }
           })
-              });
-          
-      
+        });
       })
     });
     let directive = document.createElement('h2');
@@ -158,7 +162,7 @@ loader();
  }
 category()
  
-function dropMenu(){
+ function dropMenu(){
  let progressbar = document.querySelector(".progress");
   let ul = document.createElement("ul");
   let menuCon = document.createElement("div");
@@ -207,13 +211,17 @@ let categories = document.querySelectorAll(".changeCategory");
                list.style.backgroundColor = "rgba(105,136,160,100%)";
              },50)
            },0)
-let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz] =
-[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0)];
- [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz] =
+      document.querySelector(".questions-answers").innerHTML = "";
+let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
+[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0)];
+
+ [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz,phyquiz] =
  [$.quiz(maths,1),$.quiz(javascript,1),$.quiz(chem,1),$.quiz(html,1),
- $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1)];
+ $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1)];
          let clicked = list.innerText;
           selectedCategory = clicked;
+       document.querySelector("header div").innerHTML = `<h1>${selectedCategory}
+      MCQ</h1>`;
           [mins, secs] = tictac;
           k=0;
         correctly =0;
@@ -242,6 +250,9 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz] =
                   break;
                 case "English":
                   enguiz();
+                  break;
+                case "Physics":
+                  phyuiz();
                   break;
               }
       });
@@ -286,7 +297,7 @@ function count(){
       scorePage();
       document.querySelector("#score-page").style.display = "block";
     }
-  },50);
+  },duration);
    globalThis.progress = document.createElement("div");
   progress.style.height = "99%";
   progress.style.borderRadius = "10px";
@@ -337,37 +348,17 @@ function count(){
                 case "English":
                   engquiz();
                   break;
+                case "Physics":
+                  phyquiz();
+                  break;
               }
    submit.style.display = "none";
    
    Options.forEach((radbtn)=>{
      if(radbtn.checked){
-       let selectedAnswer = radbtn.value;
+     let selectedAnswer = radbtn.value;
        let correctAnswer = radbtn.dataset.answer;
-     /*  
-   switch(selectedCategory){
-                case "JavaScript":
-                  correctAnswer = javascript[k].answer;
-                  break;
-                case "CSS":
-                  correctAnswer = css[k].answer;
-                  break;
-                case "HTML":
-                correctAnswer = html[k].answer;
-                  break;
-                case "Maths": 
-                  correctAnswer = maths[k].answer;
-                  break;
-                case "Chemistry":
-                  correctAnswer = chem[k].answer;
-                  break;
-                case "Biology":
-                  correctAnswer = bio[k].answer;
-                case "English":
-                  correctAnswer = eng[k].answer;
-                  break;
-   }
-   */
+       console.log(selectedAnswer === correctAnswer)
        selectedAnswer === correctAnswer?++correctly:++wrongly;
        console.log(`sl=${selectedAnswer}: ca=${correctAnswer}`)
        if(k === 24){
@@ -392,13 +383,9 @@ function count(){
          scorePage();
          document.querySelector("#score-page").style.display = "block";
        }
-      
        ++k;
-       
      }
-   })
-   
-   
+  })
   });
   
   progressbar.append(progressText);
@@ -414,12 +401,40 @@ function scorePage(){
   correctlyAnswer.innerHTML = correctly;
   wronglyAnswer.innerHTML = wrongly;
    scored.innerHTML = score+'%';
+  let checker =document.querySelector(".answer-page");
+let checkQuestion = document.querySelector(".questions-answers");
+   checker.addEventListener("click",(evt)=>{
+     if(checkQuestion.style.display === "none"){
+       checkQuestion.style.display ="block";
+     }else {
+       checkQuestion.style.display = "none";
+     };
+   })
 }
 
 let mathsquiz = $.quiz(maths,0);
 let jsquiz = $.quiz(javascript,0);
-let chemquiz  = $.quiz(chem,0);
+let chemquiz = $.quiz(chem,0);
 let bioquiz = $.quiz(bio,0);
 let cssquiz = $.quiz(css,0);
 let htmlquiz = $.quiz(html,0);
 let engquiz = $.quiz(eng,0);
+let phyquiz = $.quiz(phy,0);
+/*
+  let checker =document.querySelector(".answer-page");
+   checker.addEventListener("click",(evt)=>{
+    let checkQuestion = document.querySelector(".questions-answers");
+    if(checkQuestion.style.display === "none"){
+    checkQuestion.style.display = "block";
+    }else{
+      checkQuestion.style.display = "none"
+    };
+    let text = checker.innerHTML;
+    console.log(text)
+    if(text === `Check Your Answers`){
+      checker.innerHTML = `Remove`;
+    }else {
+      checker.innerHTML = `Check Your Answers`
+    }
+   });
+   */
