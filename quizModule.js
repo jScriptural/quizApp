@@ -1,4 +1,4 @@
-
+export let id = [];
 export function $(){}
 export function isEmpty(obj){
   return !Object.keys(obj).length;
@@ -166,26 +166,18 @@ $.quiz = function(selectedCategory,i){
         let optionD = document.createElement("div");
   question.innerHTML= `<p>${selectedCategory[i].question}</p>`;
 let option = [optionA,optionB,optionC,optionD];
+
    for(let j = 0; j < option.length; ++j){
         option[j].innerHTML = `<p class="para"><input type="radio"
         value="${selectedCategory[i].options[j]}"
-        name="check-answer" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
+        name="${i}" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
         container.append(question,optionA,optionB,optionC,optionD);
       }
-      /*
-      option.forEach(opt=>{
-        console.log(opt)
-        let input = document.querySelector("opt + p input");
-        if(input.value === input.dataset.answer){
-          opt.style.backgroundColor = "blue";
-          return;
-        }
-      })
-      */
-    
+    id.push(i);
+  
   }
   write();
-  
+
       console.log(i)
        ++i;
 

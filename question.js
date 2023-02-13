@@ -562,8 +562,56 @@ export let html = [
     `Cascading Style Sheet`,
     `Common Styling Scheme`],
     answer:"Cascading Style Sheet",
-  }
-    
+  },
+  {
+    question: `Which of the following selector is used to selects siblings?`,
+    options:["::after","E ~ F",":checked","E[attr^=value]"],
+    answer:"E ~ F",
+  },
+  {
+    question:`Which of the following selector is used to selects the elements
+    that are in the default state among a set of similar elements?`,
+    options:["::after",":disabled",":default",":checked"],
+    answer: ":default",
+  },
+  {
+    question:`Which of the following is the correct syntax to display the
+    hyperlinks without any underline?`,
+    options:[`a {text-decoration: no-underline;}`,
+    `a {text-decoration: none;}`,
+    `a {font-style: no-underline;}`,
+    `a {underline: none;}`],
+    answer: `a {text-decoration: none;}`,
+  },
+  {
+    question: `How do you insert a comment in CSS?`,
+    options: [`//this is a comment//`,
+    `/* this is a comment */`,
+    `// this is a comment`,
+    `&#60;!--this is a comment --&#62;`],
+    answer: `/* this is a comment */`,
+  },
+  {
+    question: `How do you make each word in a text start with a capital letter?`,
+    options:[`transform: capitalize;`,
+    `Not possible with CSS`,
+    `text-transform: capitalize;`,
+    `text-style: capitalize;`],
+    answer: `text-transform: capitalize;`,
+  },
+  {
+    question: `Which property is used to change the font of an element?`,
+    options:["text-type","font-family","font", "font-style"],
+    answer: `font-family`,
+  },
+  {
+    question: `What are the possible values for the text-transform property?`,
+    options:[`uppercase, lowercase, capitalize`,
+    `uppercase, lowercase, capitalize and sentence`,
+    `upper, lower, capital`,
+    `upper, lower, capital, sentence`],
+    answer: `uppercase, lowercase, capitalize`,
+  },
     ];
   css.sort((a,b)=>Math.random()-0.5);
   console.log(`css=${css.length}`)

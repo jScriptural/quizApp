@@ -37,7 +37,7 @@
   text-align:center;
   font-family:courier;
   color:#fff;
-  font-size:20px;
+  font-size:5.5vmin;
 }
 #category {
   height: 100vh;
@@ -148,7 +148,7 @@ header {
 }
 header div h1{
   font-size: 6vmin;
-  font-family: "Comic Sans MS";
+  font-family: "courier";
   font-weight: bold;
   color: rgba(275,0,0,100%);
 }
@@ -165,7 +165,8 @@ header div h1{
   overflow: scroll;
 }
 .question p {
-  font-family: Sans-Serif;
+  font-family: courier;
+  font-weight: 800;
   color: #fff;
   margin: 2px;
   font-size: 4.5vmin;
@@ -203,6 +204,7 @@ header div h1{
 .opt p {
   margin-left: 10px;
   color: #fff;
+  font-family: "Courier New";
   
 }
 
@@ -233,21 +235,20 @@ header div h1{
   
 }
 .drop-down ul li {
-  color: #f0f0f0;
-  font-size: 0.8rem;
+  color: #fff;
+  font-size: 4vmin;
   font-family: cursive,'explora',courier,'Sans-Serif';
-  font-weight: 600;
-  margin: 10px;
+  font-weight: bold;
+  margin: 3.2vmin;
   border-bottom: 1px solid #000;
   list-style-type: none;
   text-align: center;
-}
-.changeCategory {
-  font-size:56px;
+  background: rgba(105,136,160,100%);
 }
 
+
 #score-page {
-   display: none;
+  display: none;
 }
 
 #score-page .image {
@@ -266,7 +267,7 @@ header div h1{
 .correct-wrong {
   width: 100vw;
   position: absolute;
-  top: 40vh;
+  top: 38vh;
  /*border:1px solid blue;*/
   display: flex;
   justify-content: space-between;
@@ -308,7 +309,7 @@ header div h1{
   flex-flow: column wrap;
   align-items: center;
   position: absolute;
-  top: 60vh;
+  top: 54vh;
   margin: 4px;
 }
 .score h1 {
@@ -332,7 +333,7 @@ header div h1{
 }
 .comment {
   position: absolute;
-  top: 78vh;
+  top: 72vh;
   width: 90vw;
   display:flex;
   left: 5vw;
@@ -351,7 +352,7 @@ sup, sub {
 }
 .answer-con {
   position: absolute;
-  top: 85vh;
+  top: 84vh;
   width: 100%;
   display:flex;
   justify-content: center;
@@ -359,18 +360,21 @@ sup, sub {
 }
 .answer-page {
   color:blue;
-  font-family: Sans-Serif;
+  font-family: cursive,courier,Sans-Serif;
   width: 45vw;
   height: 4vh;
   border-radius: 2%;
+  font-size: 5vmin;
 }
 .questions-answers {
   z-index: 101;
   border: 1px solid red;
   width: 100%;
-  height: 38%;
+  height: 36%;
   overflow: scroll;
   position: absolute;
   background: #fff;
   display: none;
+  font-family: "Courier New";
+  font-weight: 600;
 }

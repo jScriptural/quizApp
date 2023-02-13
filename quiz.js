@@ -1,7 +1,7 @@
 
-import {$} from "./quizModule.js";
+import {$,id} from "./quizModule.js";
 import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js";
- let duration = 50;
+ let duration = 100;
  let selectedCategory;
  let score = 0;
  let correctly = 0;
@@ -186,6 +186,7 @@ category()
      bars.style.display = "none";
      cancel.style.display = "block";
    });
+  
    document.body.addEventListener('click',(evt)=>{
      $.slideOut(menuCon,1);
      bars.style.display = "block";
@@ -208,9 +209,9 @@ let categories = document.querySelectorAll(".changeCategory");
            setTimeout(()=>{
              list.style.backgroundColor = "red";
              setTimeout(()=>{
-               list.style.backgroundColor = "rgba(105,136,160,100%)";
-             },50)
-           },0)
+               list.style.backgroundColor ="rgba(105,136,160,50%)"
+             },100)
+           },0);
       document.querySelector(".questions-answers").innerHTML = "";
 let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
 [$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0)];
@@ -401,8 +402,26 @@ function scorePage(){
   correctlyAnswer.innerHTML = correctly;
   wronglyAnswer.innerHTML = wrongly;
    scored.innerHTML = score+'%';
+   
+     // let correct = [];
+      for(let value of id){
+       document.querySelectorAll(`input[name="${value}"]`).forEach(radbtn=>{
+        if(radbtn.value === radbtn.dataset.answer){
+           radbtn.checked = "true";
+           radbtn.style.backgroundColor='red'
+        }
+        radbtn.disabled = "true";
+        });
+      //  document.querySelectorAll(`input[name="${value}"]`).
+      }
+      /*
+      console.log(correct)
+     correct.forEach(radbtn=>{
+       radbtn.checked = "true";
+     }) ;
+   */
   let checker =document.querySelector(".answer-page");
-let checkQuestion = document.querySelector(".questions-answers");
+  let checkQuestion = document.querySelector(".questions-answers");
    checker.addEventListener("click",(evt)=>{
      if(checkQuestion.style.display === "none"){
        checkQuestion.style.display ="block";
