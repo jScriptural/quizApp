@@ -1,7 +1,7 @@
 
 import {$,id} from "./quizModule.js";
 import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js";
- let duration = 100;
+ let duration = 50;
  let selectedCategory;
  let score = 0;
  let correctly = 0;
@@ -10,7 +10,7 @@ import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js
  let tictac = [9,59];
  let k= 0;
  let [mins,secs] = tictac;
-
+  let selections = [];
  
 
   
@@ -38,8 +38,7 @@ import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js
     logo.innerHTML =
      `<h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1>`;
      logoCon.append(logo);
-   let text = "WELCOME TO PIKIN QUIZ ";
-   //let miniText = "...widening your horizon"
+   let text = "WELCOME TO PIKIN QUIZ   ";
    let display = document.createElement("h1");
    let animation = document.createElement("div");
    animation.append(display);
@@ -80,11 +79,10 @@ loader();
       li.innerHTML = `<input type="radio" name="options" value=${subject}>
       ${subject}`;
       list.append(li);
-
     }
-    list.style.marginTop = '10px'
-    list.style.listStyleType= "none"
-    selector.append(list)
+    list.style.marginTop = '10px';
+    list.style.listStyleType= "none";
+    selector.append(list);
     let value = document.querySelectorAll('input[name="options"]');
     let proceed = document.createElement("div");
     proceed.style.position="absolute";
@@ -101,8 +99,6 @@ loader();
     proceed.style.boxShadow="1px 2px 0px rgba(175,175,175)";
     proceed.style.display="none";
     categoryPage.append(proceed);
-  //  let mathsquiz = $.quiz(maths,0);
-   //let jsquiz = $.quiz(javascript,0);
     
     value.forEach((radbutton)=>{
       radbutton.addEventListener('click',(evt)=>{
@@ -160,7 +156,7 @@ loader();
     
     
  }
-category()
+category();
  
  function dropMenu(){
  let progressbar = document.querySelector(".progress");
@@ -171,8 +167,8 @@ category()
     li.classList.add("changeCategory");
     li.innerText = item;
     ul.append(li);
-  }
-    
+  };
+  
   menuCon.classList.add("drop-down");
   menuCon.append(ul);
   document.body.append(menuCon);
@@ -200,17 +196,13 @@ category()
    });
    */
 let categories = document.querySelectorAll(".changeCategory");
-   // console.log(categories);
-  // progressbar.append(prog)
-  
-  
     categories.forEach((list)=>{
       list.addEventListener("click",(evt)=>{
            setTimeout(()=>{
              list.style.backgroundColor = "red";
              setTimeout(()=>{
-               list.style.backgroundColor ="rgba(105,136,160,50%)"
-             },100)
+               list.style.backgroundColor ="rgba(105,136,160,50%)";
+             },100);
            },0);
       document.querySelector(".questions-answers").innerHTML = "";
 let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
@@ -222,7 +214,7 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
          let clicked = list.innerText;
           selectedCategory = clicked;
        document.querySelector("header div").innerHTML = `<h1>${selectedCategory}
-      MCQ</h1>`;
+      Quiz</h1>`;
           [mins, secs] = tictac;
           k=0;
         correctly =0;
@@ -260,7 +252,7 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
     })
    
 }
-dropMenu()
+dropMenu();
 
 function count(){
   let progressbar = document.querySelector(".progress");
@@ -358,10 +350,9 @@ function count(){
    Options.forEach((radbtn)=>{
      if(radbtn.checked){
      let selectedAnswer = radbtn.value;
+      selections.push(radbtn.value);
        let correctAnswer = radbtn.dataset.answer;
-       console.log(selectedAnswer === correctAnswer)
        selectedAnswer === correctAnswer?++correctly:++wrongly;
-       console.log(`sl=${selectedAnswer}: ca=${correctAnswer}`)
        if(k === 24){
          let remark = document.querySelector(".remark");
          score = Math.round((correctly/25)*100)
@@ -403,23 +394,27 @@ function scorePage(){
   wronglyAnswer.innerHTML = wrongly;
    scored.innerHTML = score+'%';
    
-     // let correct = [];
-      for(let value of id){
-       document.querySelectorAll(`input[name="${value}"]`).forEach(radbtn=>{
-        if(radbtn.value === radbtn.dataset.answer){
-           radbtn.checked = "true";
-           radbtn.style.backgroundColor='red'
-        }
-        radbtn.disabled = "true";
-        });
-      //  document.querySelectorAll(`input[name="${value}"]`).
-      }
-      /*
-      console.log(correct)
-     correct.forEach(radbtn=>{
-       radbtn.checked = "true";
-     }) ;
-   */
+      for(let i of id){
+       document.querySelectorAll(`input[name="${i}"]`).forEach(radbtn=>{
+         if(radbtn.value === radbtn.dataset.answer){
+           let p = radbtn.closest("p");
+           try{
+             p.style.color = "green";
+           } catch(err){
+             console.log(err);
+           }
+         }else if(radbtn.value === selections[i]){
+           let p = radbtn.closest("p");
+           try{
+             p.style.color = "red";
+           }catch(err){
+             console.log(err);
+           }
+         }
+       });
+       
+      };
+      
   let checker =document.querySelector(".answer-page");
   let checkQuestion = document.querySelector(".questions-answers");
    checker.addEventListener("click",(evt)=>{
@@ -439,21 +434,3 @@ let cssquiz = $.quiz(css,0);
 let htmlquiz = $.quiz(html,0);
 let engquiz = $.quiz(eng,0);
 let phyquiz = $.quiz(phy,0);
-/*
-  let checker =document.querySelector(".answer-page");
-   checker.addEventListener("click",(evt)=>{
-    let checkQuestion = document.querySelector(".questions-answers");
-    if(checkQuestion.style.display === "none"){
-    checkQuestion.style.display = "block";
-    }else{
-      checkQuestion.style.display = "none"
-    };
-    let text = checker.innerHTML;
-    console.log(text)
-    if(text === `Check Your Answers`){
-      checker.innerHTML = `Remove`;
-    }else {
-      checker.innerHTML = `Check Your Answers`
-    }
-   });
-   */

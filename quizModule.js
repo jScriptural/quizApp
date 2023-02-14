@@ -168,19 +168,16 @@ $.quiz = function(selectedCategory,i){
 let option = [optionA,optionB,optionC,optionD];
 
    for(let j = 0; j < option.length; ++j){
-        option[j].innerHTML = `<p class="para"><input type="radio"
+        option[j].innerHTML = `<p class="_${i}"><input type="radio"
         value="${selectedCategory[i].options[j]}"
-        name="${i}" data-answer="${selectedCategory[i].answer}">&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
+        name="${i}" data-answer="${selectedCategory[i].answer}" disabled>&nbsp;&nbsp;${selectedCategory[i].options[j]}</p>`;
         container.append(question,optionA,optionB,optionC,optionD);
       }
     id.push(i);
   
   }
   write();
-
-      console.log(i)
        ++i;
-
       document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
          radbtn.addEventListener("click",evt=>{
            document.querySelector(".btn1").style.display = "block";
@@ -188,38 +185,3 @@ let option = [optionA,optionB,optionC,optionD];
        })
   }
 }
-
-
-
-
-
-
-
-
-
-
-/*
-function mathsQuiz(i){
- //let i = 0;
-  let question = document.querySelector(".question");
-  let optionA = document.querySelector(".optionA");
-  let optionB = document.querySelector(".optionB");
-  let optionC = document.querySelector(".optionC");
-  let optionD = document.querySelector("  .optionD");
-  let options = [optionA,optionB,optionC,optionD];
-   return function insert(){
-     if(i == 25)return;
-  question.innerHTML= `<p>${maths[i].question}</p>`;
-      for(let j =0; j < options.length; ++j){
-        options[j].innerHTML = `<input type="radio"
-        value="${maths[i].options[j]}" name="answer">&nbsp;&nbsp;${maths[i].options[j]}`;
-      }
-       ++i;
-      document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
-         radbtn.addEventListener("click",evt=>{
-           document.querySelector(".btn1").style.display = "block";
-         })
-       })
-  };
-}
-*/

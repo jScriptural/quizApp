@@ -101,7 +101,7 @@ nav .cancel{
   z-index: 1 ;
 }
 .count .progress {
-  border: 1px solid #c0c0c0;
+  border: 1px solid #c1c1c1;
   width: 55%;
   height: 35%;
   margin-left: 5px;
@@ -119,7 +119,7 @@ nav .cancel{
   font-family: cursive;
 }
 .count .timer {
-  border: 1px solid #c0c0c0;
+  border: 1px solid #c1c1c1;
   width:30%;
   height:35%;
   margin-right: 5px;
@@ -150,10 +150,10 @@ header div h1{
   font-size: 6vmin;
   font-family: "courier";
   font-weight: bold;
-  color: rgba(275,0,0,100%);
+  color: orange/*rgba(275,0,0,100%)*/;
 }
 .question {
-  border: 1px solid blue;
+  border: 1px solid orange;
   margin: 3%;
   height: 30%;
   display: flex;
@@ -235,9 +235,10 @@ header div h1{
   
 }
 .drop-down ul li {
+  cursor: pointer;
   color: #fff;
   font-size: 4vmin;
-  font-family: cursive,'explora',courier,'Sans-Serif';
+  font-family: cursive,explora,courier,Sans-Serif;
   font-weight: bold;
   margin: 3.2vmin;
   border-bottom: 1px solid #000;
@@ -364,7 +365,6 @@ sup, sub {
   width: 45vw;
   height: 4vh;
   border-radius: 2%;
-  font-size: 5vmin;
 }
 .questions-answers {
   z-index: 101;
@@ -375,6 +375,6 @@ sup, sub {
   position: absolute;
   background: #fff;
   display: none;
-  font-family: "Courier New";
-  font-weight: 600;
+  font-family: courier;
+  font-weight: 800;
 }
