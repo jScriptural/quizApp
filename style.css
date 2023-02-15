@@ -1,0 +1,383 @@
+
+ @import
+ url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
+
+ 
+*{
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+ body {
+   background: #132040;
+   background-repeat-y: repeat;
+   background-size: 100%;
+   position: relative;
+ }
+ 
+#preloader, #score-page {
+  height: 100vh;
+  background: #132030;
+  z-index: 100;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: scroll;
+}
+.animation {
+	 	position: absolute;
+	 	top:45vh;
+	 	left:4vw;
+	 	right:4vw;
+}
+.animation h1 {
+  text-align:center;
+  font-family:courier;
+  color:#fff;
+  font-size:5.5vmin;
+}
+#category {
+  height: 100vh;
+  z-index:99;
+  background:#132030;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: scroll;
+}
+.logon {
+  position: fixed;
+  top:0;
+  left:3px;
+  right:0;
+  bottom:0;
+}
+.select {
+  position: absolute;
+  top:20%;
+  left: 35%;
+  right:35%;
+  color: #fff;
+}
+.select ul li {
+  font-size: 0.9rem;
+  margin: 5px;
+}
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo h1, .logo sup{
+  color:#fff;
+  font-size:6vmin;
+  margin-left: 10;
+}
+nav .material-icons {
+  font-size:11vmin;
+  color:#fff;
+  margin:1% 2% 0 0;
+}
+
+nav .cancel{
+  color: red;
+  display:none;
+}
+.count {
+/*  border: 1px solid blue;*/
+  width:100vw;
+  height: 10vh;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top:10vh;
+  bottom: 80vh;
+  z-index: 1 ;
+}
+.count .progress {
+  border: 1px solid #c1c1c1;
+  width: 55%;
+  height: 35%;
+  margin-left: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+ /* background-color: #5f5f5f;*/
+  position:relative;
+  border-radius: 10px;
+}
+.count .progress span {
+  left: 47%;
+  right: 47%;
+  color: #fff;
+  font-family: cursive;
+}
+.count .timer {
+  border: 1px solid #c1c1c1;
+  width:30%;
+  height:35%;
+  margin-right: 5px;
+  color:#fff;
+  font-family: cursive, courier,'explora';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4%;
+}
+
+#quest-con {
+ /* border: 1px solid red;*/
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  top: 25vh;
+}
+header {
+  width: 100%;
+  /*border:1px solid red;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6vmin;
+}
+header div h1{
+  font-size: 6vmin;
+  font-family: "courier";
+  font-weight: bold;
+  color: orange/*rgba(275,0,0,100%)*/;
+}
+.question {
+  border: 1px solid orange;
+  margin: 3%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+  color: #fff;
+  overflow: scroll;
+}
+.question p {
+  font-family: courier;
+  font-weight: 800;
+  color: #fff;
+  margin: 2px;
+  font-size: 4.5vmin;
+}
+.options {
+  /*border: 1px solid green;*/
+  height: 55%;
+  margin: 7% 1%;
+  /* display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;*/
+  
+}
+.option {
+ /* border: 1px solid white;*/
+ /* display: flex;
+  justify-content: space-between;
+  align-items: center;*/
+  height: 45%;
+  margin: 2%;
+}
+.optionA, .optionB, .optionC, .optionD {
+  border-bottom: 1px solid orange;
+ /* width: 96%;*/
+  height: 45%;
+ margin: 4px;
+ /* border-radius: 20%;
+  color: #fff;*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.opt p {
+  margin-left: 10px;
+  color: #fff;
+  font-family: "Courier New";
+  
+}
+
+
+.btn1 {
+  position: absolute;
+  top: 80vh;
+  left: 40vw;
+  right: 40vw;
+  border: 1px solid blue;
+  background: blue;
+  box-shadow: 1px 2px 0 rgba(175,175,175);
+  font-size: 5vmin;
+  text-align: center;
+  font-family: courier, explora,cursive;
+  color: #fff;
+  display: none;
+}
+.drop-down {
+  border: 1px solid #7e7e7e;
+  background: rgba(37,73,102,100%);
+  position: absolute;
+  width: 0;
+  z-index: 98;
+  left: 99vw;
+  top: 0vh;
+  display:none;
+  overflow:hidden;
+  
+}
+.drop-down ul li {
+  cursor: pointer;
+  color: #fff;
+  font-size: 4vmin;
+  font-family: cursive,courier,Sans-Serif;
+  font-weight: bold;
+  margin: 3.2vmin;
+  border-bottom: 1px solid #000;
+  list-style-type: none;
+  text-align: center;
+  background: rgba(105,136,160,100%);
+}
+
+
+#score-page {
+  display: none;
+}
+
+#score-page .image {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  /* border:1px solid red;*/
+    top: 10vh;
+}
+#score-page .image img {
+  width: 50%;
+  
+}
+.correct-wrong {
+  width: 100vw;
+  position: absolute;
+  top: 38vh;
+ /*border:1px solid blue;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:2px;
+}
+.correct, .wrong {
+  /*border: 1px solid green;*/
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding:4px;
+}
+.correct h1, .wrong h1 {
+  font-size: 4vmin;
+  color: #fff;
+  text-align: center;
+  font-family: cursive;
+}
+.correct div, .wrong div {
+  border:1px solid red;
+  width: 15vw;
+  height: 15vw;
+  margin-top: 10px;
+  font-family: cursive;
+  font-weight: 600;
+  font-size: 8vmin;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+}
+.score {
+ /* border: 1px solid red;*/
+  width: 100vw;
+  display:flex;
+  flex-flow: column wrap;
+  align-items: center;
+  position: absolute;
+  top: 54vh;
+  margin: 4px;
+}
+.score h1 {
+  color : #fff;
+  font-family: cursive,"explora";
+  font-size: 4vmin;
+  text-align: center;
+}
+.score .score-board {
+  border: 1px solid blue;
+  width: 15vw;
+  height: 15vw;
+  margin: 5px;
+  font-family: cursive;
+  font-size: 6vmin;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  
+}
+.comment {
+  position: absolute;
+  top: 72vh;
+  width: 90vw;
+  display:flex;
+  left: 5vw;
+  right: 5vw;
+  justify-content: center;
+  align-items: center;
+ /* border: 1px solid red;*/
+}
+.comment h1 {
+  font-size: 10vmin;
+  font-family: cursive;
+  text-align: center;
+}
+sup, sub {
+  font-size: 3vmin;
+}
+.answer-con {
+  position: absolute;
+  top: 84vh;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-page {
+  color:blue;
+  font-family: cursive,courier,Sans-Serif;
+  width: 45vw;
+  height: 4vh;
+  border-radius: 2%;
+}
+.questions-answers {
+  z-index: 101;
+  border: 1px solid red;
+  width: 100%;
+  height: 36%;
+  overflow: scroll;
+  position: absolute;
+  background: #fff;
+  display: none;
+  font-family: courier;
+  font-weight: 800;
+}
