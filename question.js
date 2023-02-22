@@ -14,9 +14,9 @@ export let javascript = [
     question: `What is the correct syntax for referring to an external script
     called "xxx.js" ?`,
     options: [`&#60;script src="xxx.js"&#62;&#60;/script&#62;`,
-    `script name="xxx.js"`,
+    `"script name="xxx.js"`,
     `&#60;script href="xxx.js"&#62;&#60;/script&#62;`,
-	    `&#60;js src="xxx.js"&#62;&#60;/script&#62;`],
+	    `&#60;js src="xxx.js"&#62;&#60;/js&#62;`],
     answer: `&#60;script src="xxx.js"&#62;&#60;/script&#62;`,
   },
   {
@@ -44,7 +44,7 @@ export let javascript = [
   },
   {
     question: `What will be the output of the following javaScript code snippet?
-     <div><img src="code_snippet1.jpg" width="100%"></div>`,
+     <div><img src="./Assets/Images/code_snippet1.jpg" width="100%"></div>`,
      options:["Error","Pikin_javascript_mcq",`undefined`,`NaN`],
      answer:"Pikin_javascript_mcq",
   },
@@ -61,7 +61,7 @@ export let javascript = [
   },
   {
   question: `What will be the output of the following JavaScript code snippet?
-  <div><img src="code_snippet2.jpg" width="100%"></div>`,
+  <div><img src="./Assets/Images/code_snippet2.jpg" width="100%"></div>`,
   options:["1,2,3,4","Empty Array","4,3,2,1","Error"],
   answer:"1,2,3,4",
   },
@@ -72,7 +72,7 @@ export let javascript = [
   },
   {
     question:`What will be the output of the following JavaScript code?
-    <div><img src="code_snippet3.jpg" width="100%"></div>`,
+    <div><img src="./Assets/Images/code_snippet3.jpg" width="100%"></div>`,
     options:["[1,2,3,4,5,6,7,8]",' Type error("concat is not a function")',
     "12345678","[5,6,7,8,1,2,3,4]",],
     answer:"[1,2,3,4,5,6,7,8]",
@@ -85,13 +85,13 @@ export let javascript = [
   },
   {
     question: `What will be the output of the following JavaScript code snippet?
-    <div><img src="code_snippet4.jpg" width="100%"></div>`,
+    <div><img src="./Assets/Images/code_snippet4.jpg" width="100%"></div>`,
     options:["1","2","error","12"],
     answer:"1",
   },
   {
     question:`What will be written on the console?
-    <div><img src="code_snippet5.jpg" width="100%"></div>`,
+    <div><img src="./Assets/Images/code_snippet5.jpg" width="100%"></div>`,
     options:["Reference error","Type error","1","2"],
     answer:"Reference error",
   },
@@ -206,13 +206,13 @@ export let javascript = [
 	},
 	{
 		question:`What will be the output of this code?<br>
-		<div><img src="code_snippet6.jpg" width="100%"></div>`,
+		<div><img src="./Assets/Images/code_snippet6.jpg" width="100%"></div>`,
 		options:["Undefined","2","3","NaN"],
 		answer:"3",
 	},
 	{
 		question:`What will be the output of this code?<br>
-		<div><img src="code_snippet7.jpg" width="100%"></div>`,
+		<div><img src="./Assets/Images/code_snippet7.jpg" width="100%"></div>`,
 		options:[`1,undefined,2`,
 			`error,1,2`,
 			`error`,
@@ -959,7 +959,7 @@ export  let chem  = [
     "Electron affinity",
     `Electronegativity`, 
     `Inert tendencies`],
-    answer: "Electron affinity",
+    answer: "Atomic size",
   },
   {
     question: `Which of the following compound is insoluble in water?`,
@@ -971,7 +971,7 @@ export  let chem  = [
     answer: `MgO`,
   },
   {
-    question: `From the balanced equation, what is the value of X
+    question: `From the balanced equation, what is the value of X?<br>
     Pb(NO<sub>3</sub>)<sub>2</sub>(aq) + XNaCl(aq) ➞  PbCl<sub>2</sub>(s) +
     2NaNO<sub>3</sub>(aq) ?`,
     options: ["1","2","3","4"],
@@ -994,11 +994,11 @@ export  let chem  = [
   {
     question: ` What quantity of electricity is consumed when 10 Amperes was
     consumed in 1 hour during electrolysis?`,
-    options: ["36 KC", "3600 C","7200 C", "72 KC"],
-    answer: "36 KC",
+    options: ["36 kC", "3600 C","7200 C", "72 kC"],
+    answer: "36 kC",
   },
   {
-    question: `Standard electrode potential value of pure hydrogen at all temperatures
+    question: `The standard electrode potential value of pure hydrogen at all temperature
     is? `,
     options: ["1 V","2 V","0 V","0.5 V"],
     answer: "0 V",
@@ -1018,7 +1018,7 @@ export  let chem  = [
     answer: "Argon",
   },
   {
-    question:`What chemical process is represented by the following equation? 
+    question:`What chemical process is represented by the following equation?<br> 
      4Fe(s) + 3O<sub>2</sub>(g) +2xH<sub>2</sub>(l)
      ➞2Fe<sub>2</sub>O<sub>3</sub>.xH<sub>2</sub>O(s)`,
      options:["Combustion","Oxidation",'Hydration',"Rusting"],
@@ -1108,15 +1108,6 @@ export  let chem  = [
     answer: "travel in straight lines",
   },
   {
-    question:`A suitable reagent for distinguishing ethanoic acid from ethanol
-    is?`,
-    options:["Bromine water",
-    "Fehling`s solutuon",
-    `Sodium hydrogen trioxocarbonate(IV)`,
-    `Ammoniacal silver trioxonitrate(V)`],
-    answer:`Sodium hydogen trioxocarbonate(IV)`,
-  },
-  {
     question:`Which of the following metal burns with brick red flame?`,
     options:["Pb","Ca","Na","Mg"],
     answer:"Ca",
@@ -1149,7 +1140,132 @@ export  let chem  = [
     `C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>`,
     `C<sub>6</sub>H<sub>12</sub>O<sub>3</sub>`],
     answer:`C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>`,
-  }
+  },
+	{
+		question:`How many orbitals are in the d-subshell ?`,
+		options:["1","3","5","7"],
+		answer:"3",
+	},
+	{
+		question:`An element X has isotopic masses of 6 and 7. If the relative abundance is 1 to 12.5 respectively, what is the relative atomic mass of X?`,
+		options:["6.0","6.1","6.9","7.0"],
+		answer:"6.9",
+	},
+	{
+		question:`An element X has electronic configuration 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>4s<sup>2</sup>. To which group of the periodic table does X belong?`,
+		options:["I","II","III","IV"],
+		answer:"II",
+	},
+	{
+		question:`The atomic numbers of elements X and Y are 20 and 17 respectively. Which of the following compounds is likely to be formed by the combination of the two elements?`,
+		options:["XY","XY<sub>2</sub>","XY<sub>3</sub>","X<sub>2</sub>Y"],
+		answer:"XY<sub>2</sub>",
+	},
+	{
+		question:`Consider the reaction<br> H<sup>+</sup>(aq) + OH<sup>-</sup>(aq) ➞ H<sub>2</sub>O(l).<br> The energy change taking place in the reaction above is enthalpy of `,
+		options:["hydration","formation","neutralization","solution"],
+		answer:"neutralization",
+	},
+	{
+		question:`Which of the following equations represents a substitution reaction?`,
+		options:[`C<sub>4</sub>H<sub>10</sub> + Cl<sub>2</sub> ➞ C<sub>4</sub>H<sub>9</sub>Cl + HCl`,
+			`C<sub>2</sub>H<sub>4</sub> + HCl ➞ C<sub>2</sub>H<sub>5</sub>Cl`,
+			`C<sub>2</sub>H<sub>2</sub> + 2H<sub>2</sub> ➞ C<sub>2</sub>H<sub>6</sub>`,
+			`C<sub>3</sub>H<sub>4</sub> + 4O<sub>2</sub> ➞ 3CO<sub>2</sub> + 2HCl`],
+		answer:`C<sub>4</sub>H<sub>10</sub> + Cl<sub>2</sub> ➞ C<sub>4</sub>H<sub>9</sub>Cl + HCl`,
+	},
+	{
+		question:`Which of the following compounds is an alkanoate?`,
+		options:[`CH<sub>3</sub>COOH`,
+			`CH<sub>3</sub>COOCH<sub>3</sub>`,
+			`CH<sub>3</sub>CH<sub>2</sub>OH`,
+			`CH<sub>3</sub>CH<sub>2</sub>COOH`],
+		answer:`CH<sub>3</sub>COOCH<sub>3</sub>`,
+	},
+	{
+		question:`What is the percentage composition of oxygen in K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>? [K = 39; Cr = 52; 0 = 16]`,
+		options:["14.20%","26.53%","35.37%","38.09%"],
+		answer:`38.09%`,
+	},
+	{
+		question:`Consider the reaction represented by the equation: ca(OH)<sub>2</sub><sub>(aq)</sub> + CO<sub>2</sub><sub>(g)</sub> ➞ CaCO<sub>3</sub><sub>(s)</sub> + H<sub>2</sub>O<sub>(l)</sub>. CO<sub>2</sub> acts as `,
+		options:[`an acidic oxide`,
+			`an oxidizing agent`,
+			`a basic oxide`,
+			`a dehydrating agent`],
+		answer:`an acidic oxide`,
+	},
+	{
+		question:`What product is formed at the cathode during the electrolysis of concentrated sodium chloride solution using carbon electrodes?`,
+		options:["Chlorine","Hydrogen","Oxygen","Sodium"],
+		answer:"Hydrogen",
+	},
+	{
+		question:`What is the empirical formula of a hydrocarbon containing 0.08 moles of carbon and 0.32 moles of hydrogen?`,
+		options:[`CH<sub>2</sub>`,`CH<sub>3</sub>`,
+			`CH<sub>4</sub>`,`C<sub>2</sub>H<sub>4</sub>`],
+			answer:`CH<sub>4</sub>`,
+	},
+	{
+		question:`Alkenes undergoes the following reactions except `,
+		options:["addition","hydration","polymerization","substitution"],
+		answer:"substitution",
+	},
+	{
+		question:`Glucose reduces Fehling's solution on warming to `,
+		options:["copper(I)oxide","copper(II)oxide","copper(I)chloride","copper(II)chloride"],
+		answer:"copper(I)oxide",
+	},
+	{
+		question:`Which of the following instrument is used in detecting the presence of radiation?`,
+		options:["Cathode ray tube",
+			"Geiger-Muller counter",
+			"Mass spectrometer",
+			"X-ray tube"],
+		answer:"Geiger-Muller counter",
+	},
+	{
+		question:`Which of the following elements is diatomic?`,
+		options:["Sodium","Oxygen","Iron","Neon"],
+		answer:`Oxygen`,
+	},
+	{
+		question:`The gas law which describes the relationship between volume and temperature is `,
+		options:["Boyle's law","Charles' law","Dalton's law","Graham's law"],
+		answer:"Charles' law",
+	},
+	{
+		question:`When heat is absorbed during a chemical reaction, the reaction is said to be `,
+		options:["endothermic","adiabatic","exothermic","isothermal"],
+		answer:"endothermic",
+	},
+	{
+		question:`Which of the following variables is a measure of the average kinetic energy of the molecule of a gas?`,
+		options:["Density","Pressure","Temperature","Volume"],
+		answer:"Temperature",
+	},
+	{
+		question:`The following factors affect the solubility of a solid in a given solvent except `,
+		options:[`nature of solute`,
+			`nature of solvent`,
+			`pressure`,
+			`temperature`],
+		answer:`pressure`,
+	},
+	{
+		question:`Which of the following organic compounds would decolourize bromine water?`,
+		options:["Benzene","Cyclobutane","Hexane","Pentane"],
+		answer:"Benzene",
+	},
+	{
+		question:`Bronze is a mixture of `,
+		options:["Cu and Mg",
+			"Cu and Sn",
+			"Cu and Zn",
+			"Cu and Pb"],
+		answer:"Cu and Sn",
+	},
+
   ];
   console.log(`chem=${chem.length}`)
   export let bio = [
@@ -1700,8 +1816,8 @@ export  let chem  = [
       question:`A vibrator causes water ripples to travel across the surface of
       a tank. The wave travels 50cm in 20s and the distance between successive
       crests is 5cm. Calculate the frequency of the vibrator.`,
-      options:["5 Hz","6 Hz","5.2 Hz","25 Hz"],
-      answer:"5 Hz",
+      options:["0.5 Hz","6 Hz","5.2 Hz","25 Hz"],
+      answer:"0.5 Hz",
     },
     {
       question:`A thermocouple thermometer is connected to a millivoltmeter
@@ -1712,7 +1828,7 @@ export  let chem  = [
       `248<sup>o</sup>C`,
       `250<sup>o</sup>C`,
       `350<sup>o</sup>C`],
-      answer:`250<sup>o</sup>C,`
+      answer:`250<sup>o</sup>C`
     },
     {
       question:`An alternating current can induce voltage because it has`,
@@ -1744,7 +1860,134 @@ export  let chem  = [
       of 100 m/s. Calculate the recoil speed of the machine gun. `,
       options:["0.5 m/s","1.5 m/s",'1.0 m/s',"2.0 m/s"],
       answer:'1.0 m/s'
-    }
+    },
+	  {
+		  question:`Red light travel faster than blue light when both of them pass through a glass prism because the `,
+		  options:[`refractive index of red light is greater than that of blue light`,
+			  `refractive index of blue light is greater than that of red light`,
+			  `red light is more intense than the blue light`,
+			  `blue light is more intense than the red light`],
+		  answer:`red light is more intense than the blue light`,
+	  },
+	  {
+		  question:`All electromagnetic wave in a vacuum have the same `,
+		  options: [`wavelength`,`frequency`,`speed`,`amplitude`],
+		  answer:`speed`,
+	  },
+	  {
+		  question:`An alternating current supply is connected to an electric lamp which lights with the same brightness as it does with a direct current source of <i>emf</i> 6V. The peak potential difference of the a.c supply is  `,
+		  options:[`4.6V`,`6.0V`,`8.5V`,`12.0V`],
+		  answer: `8.5V`,
+
+	  },
+	  {
+		  question: `An electric generator rated 12<i>kW</i>, 2<i>kV</i> distributes power through a cable of resistance 20𝝮. Calculate the power loss in the cable.`,
+		  options:["120 W", "360 W", "720 W", "2400 W"],
+		  answer: "720 W",
+	  },
+	  {
+		  question:`The angle which the direction of the earth magnetic field makes with the horizontal at a place is known as `,
+		  options:[`angle of contact`,
+			  `angle of dip`,
+			  `angle of declination`,
+			  `magnetic meridian`],
+		  answer: `angle of dip`,
+	  },
+	  {
+		  question:`A force acts on a body for 0.5s changing its momentum from 16.0kg ms<sup>-1</sup> to 21.0 kg ms<sup>-1</sup>. Calculate the magnitude of the force.`,
+		  options:["42.0 N","37.0 N","32.0 N",
+			  "10.0 N"],
+		  answer:"10.0 N",
+	  },
+	  {
+		  question:`A piece metal of relative density 5.0 weighs 60 N in air. Calculate its weight when fully immersed in water.`,
+		  options:["4 N","5 N","48 N","60 N"],
+		  answer:"48 N",
+	  },
+	  {
+		  question:`The mass of a loaded spiral spring oscillates vertically between two extreme positions P and R equidistant from the equilibrium position Q. Which of the following statements about the system is not correct?`,
+		  options:[`The momentum of the mass is maximum at Q`,
+			  `The elastic potential energy of the spring is maximum at Q`,
+			  `The kinetic energy of the mass is maximum at P`,
+			  `The total energy of the system is always constant`],
+		  answer:`The momentum of the mass is maximum at Q`,
+	  },
+	  {
+		  question:`A platinum resistance thermometer has a resistance of 4𝝮 at 0<sup>o</sup>C and 10𝝮 at 100<sup>o</sup>C. Assuming the resistance changes uniformly with temperature, calculate the resistance of the thermometer when the temperature is 45<sup>o</sup>C.`,
+		  options:["14.0 𝝮","6.7 𝝮","3.2 𝝮","2.7 𝝮"],
+		  answer:"6.7 𝝮",
+	  },
+	  {
+		  question:`A metal rod of length 100 cm is heated through 100<sup>o</sup>C, calculte the change in length of the rod.[linear expansivity of the material of the rod is 3 x 10<sup>-5</sup> K<sup>-1</sup>]`,
+		  options:["4 mm","3 mm","2 mm","1 mm"],
+		  answer:"3 mm",
+	  },
+	  {
+		  question:`Which of the following statements about the characteristics of sound waves is correct?`,
+		  options:[`Loudness decreases with increase in intensity`,
+			  `The pitch of a note is determined by its amplitude`,
+			  `The intensity of a sound wave is proportional to its amplitude`,
+			  `The quality of a note depends on its overtone`],
+		  answer:`The intensity of a sound wave is proportional to its amplitude`,
+	  },
+	  {
+		  question:`The ability of a material to store an electric charge when its plates are at different potentials is referred to as its `,
+		  options:["conductance","inductance","capacitance","resistance"],
+		  answer:`capacitance`,
+	  },
+	  {
+		  question:`A constantin wire has a cross sectional area of 4x10<sup>-8</sup> m<sup>2</sup> and a resistivity of 1.1 x 10<sup>-6</sup>𝝮m. If a resistor of resistance 11𝝮 is to be made from its wire, calculate the length of the wire required.`,
+		  options:["0.4 m","0.8 m","2.5 m","5.0 m"],
+		  answer:"0.4 m",
+	  },
+	  {
+		  question:`Light of energy 5.0 eV falls on a metal plate of work function 3.0 eV and electrons are emitted, determined the stopping potential.[electronic charge, e = 1.60 x 10<sup>-19</sup>C]`,
+		  options:["1.7 V","2.0 V","8.0 V","15.0 V"],
+		  answer:"2.0 V",
+	  },
+	  {
+		  question:`The velocity ratio of an inclined plane, inclined at an angle X to the horizontal can be expressed as `,
+		  options:["(sin X)<sup>-1</sup>","sin X","(cos X)<sup>-1</sup>","cos X"],
+		  answer:"(sin X)<sup>-1</sup>",
+	  },
+	  {
+		  question:` A quantity of steam at 100<sup>o</sup>C condenses to water at the same temperature by releasing 6.9 x 10<sup>4</sup> J of energy. Calculate the mass of the condensed steam.[specific latent heat of vapourization of water = 2.3 x 10<sup>6</sup> J/kg ]`,
+		  options:["3.0 x 10<sup>-1</sup> kg","3.0 x 10<sup>-2</sup> kg","3.0 x 10<sup>-3</sup> kg","3.0 x 10<sup>-4</sup> kg"],
+		  answer:"3.0 x 10<sup>-2</sup> kg",
+	  },
+	  {
+		  question:`A note of frequency 2000 Hz has a velocity of 400 m/s. Calculate the wave length of the note`,
+		  options:["5.0 m","2.0 m","0.5 m","0.2 m"],
+		  answer:"0.2 m",
+	  },
+	  {
+		  question:`Which of the following observations cannot be explained using the rectilinear propagation of light?`,
+		  options:[`Production of images by a pinhole camera`,
+			  `Production of real images of objects by lenses`,
+			  `Formation of annular eclipse`,
+			  `Diffraction patterns of light`],
+		  answer:`Diffraction patterns of light`,
+	  },
+	  {
+		  question:`A ray from a fixed object is incident on a plane mirror at an angle of 20<sup>o</sup>. If the mirror is rotated through 30<sup>o</sup>, by how many degrees would the reflect ray rotate?`,
+		  options:["60<sup>o</sup>",
+			  "50<sup>o</sup>",
+			  "40<sup>o</sup>",
+			  "30<sup>o</sup>"],
+		  answer:"60<sup>o</sup>",
+	  },
+	  {
+		  question:`The equivalent capacitance of a 3 µF capacitor and a 6 µF capacitor connected in parallel is `,
+		  options:["2.0 µF","3.0 µF","4.5 µF","9.0 µF"],
+		  answer:"9.0 µF",
+	  },
+	  {
+		  question:`A radioactive substance of mass 768 g has a half life of 3 years. After how many years does this substance leave only 6 g undecayed?`,
+		  options:["21","18","15","12"],
+		  answer:"21" 
+	  },
+
+
     ];
     console.log(`phy=${phy.length}`)
   
