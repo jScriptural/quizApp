@@ -162,7 +162,7 @@ header div h1{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5px;
+  padding:  3px;
   color: #fff;
   overflow: scroll;
 }

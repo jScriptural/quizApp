@@ -1,4 +1,4 @@
-import {$,id} from "./quizModule.js";
+import {$,id} from "./module.js";
 import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js";
  let interval = 1000;
  let selectedCategory;
@@ -220,7 +220,7 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
           k=0;
         numOfCorrectAnswers =0;
         numOfWrongAnswers =0;
-         value = 4;
+         value = 5;
         progressText.textContent = "";
          progress.style.width = "0px";
         switch(clicked){
@@ -307,7 +307,7 @@ function count(){
   submit.addEventListener("click",()=>{
     $.updateProgress(progress,value);
     progressText.textContent = `${value}%`;
-    if(value >=100) value = 95;
+    //if(value >=100) value = 95;
     value += 5;
     let  startul = document.querySelectorAll(`input[name="options"]`);
     let categories = document.querySelectorAll(".changeCategory");
