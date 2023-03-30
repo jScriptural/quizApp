@@ -1,15 +1,19 @@
 import {$,id} from "./module.js";
-import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js";
- let interval = 1000;
- let selectedCategory;
- let score = 0;
- let numOfCorrectAnswers = 0;
- let numOfWrongAnswers = 0;
- let comment;
+/*import {javascript,html,css,subjects,maths,chem,bio,eng,phy,python} from "./question.js";*/
+import {default as javascript, subjects} from "./Question/javascript.js";
+import html from "./Question/html.js";
+import css from "./Question/css.js";
+import maths from "./Question/maths.js";
+import chem from "./Question/chemistry.js";
+import bio from "./Question/biology.js";
+import eng from "./Question/english.js";
+import phy from "./Question/physics.js";
+import python from "./Question/python.js";
+import general from "./Question/general.js";
+let [interval,score,numOfCorrectAnswers,numOfWrongAnswers,k,selections] = [300,0,0,0,0,[]];
+ let selectedCategory,comment;
  let duration = [9,59];
- let k= 0;
  let [mins,secs] = duration;
- let selections = [];
  
 
   
@@ -18,19 +22,19 @@ import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js
     let preloader = document.getElementById("preloader");
     let proceed = document.createElement("div");
     
-    
-    proceed.style.position="absolute";
-    proceed.style.top="80vh";
-    proceed.style.border="1px solid blue";
-    proceed.style.color="#fff";
-    proceed.style.textAlign="center";
-    proceed.style.fontFamily="courier";
-    proceed.style.fontSize="5vmin";
-    proceed.style.left = "35vw";
-    proceed.style.right = "35vw"
-    proceed.style.backgroundColor ="blue";
-    proceed.style.boxShadow="1px 2px 0px rgba(175,175,175)";
-    proceed.style.display="none";
+    proceed.style.cssText = `
+    position: absolute;
+    top: 80vh;
+    border: 1px solid blue;
+    color: #fff;
+    text-align: center;
+    font-family: courier;
+    font-size: 5vmin;
+    left: 35vw;
+    right: 35vw;
+    background-color: blue;
+    box-shadow: 1px 2px 0 rgba(175,175,175);
+    display: none`;
     proceed.innerHTML = "PROCEED&#8680;";
 
     let logoCon = document.createElement("div");
@@ -48,7 +52,7 @@ import {javascript,html,css,subjects,maths,chem,bio,eng,phy} from "./question.js
    preloader.append(animation,logoCon,proceed);
     let interval = setInterval($.rotateColor(preloader),400);
     $.animateText(text,display);
-    globalThis.addEventListener("load",(evt)=>{
+    globalThis.addEventListener("DOMContentLoaded",(evt)=>{
       proceed.style.display = "block";
       proceed.addEventListener("click",(evt)=>{
         preloader.style.display = "none";
@@ -86,18 +90,19 @@ loader();
     selector.append(list);
     let radiobuttons = document.querySelectorAll('input[name="options"]');
     let startBtn = document.createElement("div");
-    startBtn.style.position="absolute";
-    startBtn.style.top="80vh";
-    startBtn.style.border="1px solid blue";
-    startBtn.style.color="#fff";
-    startBtn.style.textAlign="center";
-    startBtn.style.fontFamily="courier";
-    startBtn.style.fontSize="5vmin";
-    startBtn.style.left = "35vw";
-    startBtn.style.right = "35vw"
-    startBtn.style.backgroundColor ="blue";
-    startBtn.style.boxShadow="1px 2px 0px rgba(175,175,175)";
-    startBtn.style.display="none";
+    startBtn.style.cssText = `
+    position: absolute;
+    top: 80vh;
+    border: 1px solid blue;
+    color: #fff;
+    text-align: center;
+    font-family: courier;
+    font-size: 5vmin;
+    left: 35vw;
+    right: 35vw;
+    background-color: blue;
+    box-shadow: 1px 2px 0 rgba(175,175,175);
+    display: none`;
     startBtn.innerHTML = 'START&#8680;';
     categoryPage.append(startBtn);
     
@@ -139,6 +144,12 @@ loader();
                 case "Physics":
                   phyquiz();
                   break;
+		case "Python":
+	          pythonquiz();
+	          break;
+	        case "General-Knowledge":
+	          generalquiz();
+		  break;
               }
             }
           })
@@ -206,12 +217,12 @@ let categories = document.querySelectorAll(".changeCategory");
              },100);
            },0);
       document.querySelector(".questions-answers").innerHTML = "";
-let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
-[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0)];
+let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz,pythonuiz,generaluiz] =
+[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0)];
 
- [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz,phyquiz] =
+ [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz,phyquiz,pythonquiz,generalquiz] =
  [$.quiz(maths,1),$.quiz(javascript,1),$.quiz(chem,1),$.quiz(html,1),
- $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1)];
+ $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1),$.quiz(python,1),$.quiz(general,1)];
          let clicked = list.innerText;
           selectedCategory = clicked;
        document.querySelector("header div").innerHTML = `<h1>${selectedCategory}
@@ -248,6 +259,13 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz] =
                 case "Physics":
                   phyuiz();
                   break;
+                case "Python":
+		  pythonuiz();
+		  break;
+		case "General-Knowledge":
+		  generaluiz();
+		  break;
+
               }
       });
     })
@@ -343,6 +361,13 @@ function count(){
                 case "Physics":
                   phyquiz();
                   break;
+		case "Python":
+		   pythonquiz();
+		   break;
+		case "General-Knowledge":
+		   generalquiz();
+		   break;
+
               }
    submit.style.display = "none";
    
@@ -417,12 +442,14 @@ function scorePage(){
   let checker =document.querySelector(".answer-page");
   let checkQuestion = document.querySelector(".questions-answers");
    checker.addEventListener("click",(evt)=>{
-     if(checkQuestion.style.display === "none"){
-       checkQuestion.style.display ="block";
+     if(getComputedStyle(checkQuestion).display == "none"){
+       checkQuestion.style.display = "block";
+       checker.innerHTML = "Close"
      }else {
        checkQuestion.style.display = "none";
+       checker.innerHTML = "View Answers"
      };
-   })
+   });
 }
 
-let [mathsquiz,jsquiz,chemquiz,bioquiz,cssquiz,htmlquiz,engquiz,phyquiz] = [$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(bio,0),$.quiz(css,0),$.quiz(html,0),$.quiz(eng,0),$.quiz(phy,0)];
+let [mathsquiz,jsquiz,chemquiz,bioquiz,cssquiz,htmlquiz,engquiz,phyquiz,pythonquiz,generalquiz] = [$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(bio,0),$.quiz(css,0),$.quiz(html,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0)];

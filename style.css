@@ -78,7 +78,7 @@ nav {
 .logo h1, .logo sup{
   color:#fff;
   font-size:6vmin;
-  margin-left: 10;
+  margin-left: 10px;
 }
 nav .material-icons {
   font-size:11vmin;
@@ -354,12 +354,20 @@ header div h1{
 sup, sub {
   font-size: 3vmin;
 }
+code {
+	outline: 1px solid #fff;
+	display:block;
+	padding: 5px;
+	background-color: #000;
+	color: #fff;
+
+}
 .answer-con {
   position: absolute;
   top: 84vh;
   width: 100%;
   display:flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 .answer-page {
