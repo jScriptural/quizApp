@@ -225,8 +225,7 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz,pythonuiz,gene
  $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1),$.quiz(python,1),$.quiz(general,1)];
          let clicked = list.innerText;
           selectedCategory = clicked;
-       document.querySelector("header div").innerHTML = `<h1>${selectedCategory}
-      Quiz</h1>`;
+       document.querySelector("header div").innerHTML = `<h1>${selectedCategory}</h1>`;
           [mins, secs] = duration;
           k=0;
         numOfCorrectAnswers =0;
