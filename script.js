@@ -10,7 +10,7 @@ import eng from "./Question/english.js";
 import phy from "./Question/physics.js";
 import python from "./Question/python.js";
 import general from "./Question/general.js";
-let [interval,score,numOfCorrectAnswers,numOfWrongAnswers,k,selections] = [300,0,0,0,0,[]];
+let [interval,score,numOfCorrectAnswers,numOfWrongAnswers,k,selections] = [1000,0,0,0,0,[]];
  let selectedCategory,comment;
  let duration = [9,59];
  let [mins,secs] = duration;
