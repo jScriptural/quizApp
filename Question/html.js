@@ -94,13 +94,12 @@ let html = [
   },
   {
     question:`Which of the following will make an image clickable?`,
-    options:[`&#60;a href="pikinlogo.jog" &#62;pikin logo &#60;/a&#62;`,`&#60;img
-    src="pikinlogo.jpg" &#62; &#60;a href="pikin quiz" &#62;pikin logo
-    &#60;/a&#62; &#60;/img&#62;`,`&#60;a href="pikin quiz" &#62;&#60;img
-    src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,`&#60;a href="pikin quiz"
+    options:[`&#60;a href="pikinlogo.jog" &#62;pikin logo &#60;/a&#62;`,
+    `&#60;img src="pikinlogo.jpg" &#62; &#60;a href="pikin quiz" &#62;pikin logo &#60;/a&#62; &#60;/img&#62;`,
+    `&#60;a href="pikin quiz" &#62;&#60;img src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
+    `&#60;a href="pikin quiz"
     &#62;pikin logo &#60;/a&#62; &#60;img src="pikinlogo.jpg"&#62;`],
-    answer:`&#60;a href="pikin quiz" &#62;&#60;img
-    src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
+    answer:`&#60;a href="pikin quiz" &#62;&#60;img src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
   },
   {
     question: `In HTML, which attribute is used to create a link that opens in a
@@ -115,9 +114,11 @@ let html = [
   },
   {
     question:`How to create a checkbox in HTML form?`,
-    options:[`&#60;input type="text" &#62;`,`&#60;input type="button"
-    &#62;`,`&#60;input type="checkbox" &#62;`,`&#60;input type="radio" &#62;`],
-    answer:`&#60;input type="checkbox" &#62;`,
+    options:[`&#60;input type="text" &#62;`,
+	    `&#60;input type="button" &#62;`,
+	    `&#60;input type="checkbox" &#62;`,
+	    `&#60;input type="radio" &#62;`],
+    answer: `&#60;input type="checkbox" &#62;`,
   },
   {
     question:`Which HTML tag is used to convert a plain text into italic
