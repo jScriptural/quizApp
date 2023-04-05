@@ -95,10 +95,9 @@ let html = [
   {
     question:`Which of the following will make an image clickable?`,
     options:[`&#60;a href="pikinlogo.jog" &#62;pikin logo &#60;/a&#62;`,
-    `&#60;img src="pikinlogo.jpg" &#62; &#60;a href="pikin quiz" &#62;pikin logo &#60;/a&#62; &#60;/img&#62;`,
-    `&#60;a href="pikin quiz" &#62;&#60;img src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
-    `&#60;a href="pikin quiz"
-    &#62;pikin logo &#60;/a&#62; &#60;img src="pikinlogo.jpg"&#62;`],
+	    `&#60;img src="pikinlogo.jpg" &#62; &#60;a href="pikin quiz" &#62;pikin logo &#60;/a&#62; &#60;/img&#62;`,
+	    `&#60;a href="pikin quiz" &#62;&#60;img src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
+	    `&#60;a href="pikin quiz" &#62;pikin logo &#60;/a&#62; &#60;img src="pikinlogo.jpg"&#62;`],
     answer:`&#60;a href="pikin quiz" &#62;&#60;img src="pikinlogo.jpg" &#60;/img&#62;&#60;/a&#62;`,
   },
   {
