@@ -1,5 +1,5 @@
 ## About 
-This is a personal project created by me(jscriptural) to strengthen my HTML, CSS and JavaScript skills.
+This is a personal project to strengthen my HTML, CSS and JavaScript skills.
 I've learn't a lot while building this project.
 
 QuizApp is a simple web-based quiz app, where you answer questions on any  subject of your choice from the list of supported categories.
