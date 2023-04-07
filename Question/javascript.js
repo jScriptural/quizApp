@@ -71,8 +71,8 @@ let javascript =  [
     answer:'Lexical',
   },
   {
-    question:`What will be the output of the following JavaScript code?
-    <div><img src="./Assets/Images/code_snippet3.jpg" width="100%"></div>`,
+    question:`What will be the output of the following JavaScript code?<br><code> let js = [1,2,3,4];<br>
+	  let quiz = [5,6,7,8];<br> let result = js.concat(quiz);<br> console.log(result);<code>`,
     options:["[1,2,3,4,5,6,7,8]",' Type error("concat is not a function")',
     "12345678","[5,6,7,8,1,2,3,4]",],
     answer:"[1,2,3,4,5,6,7,8]",
@@ -85,7 +85,7 @@ let javascript =  [
   },
   {
     question: `What will be the output of the following JavaScript code snippet?
-    <div><img src="./Assets/Images/code_snippet4.jpg" width="100%"></div>`,
+   <div><img src="./Assets/Images/code_snippet4.jpg" width="100%"></div>`,
     options:["1","2","error","12"],
     answer:"1",
   },
