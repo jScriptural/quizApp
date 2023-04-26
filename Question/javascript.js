@@ -14,7 +14,7 @@ let javascript =  [
     question: `What is the correct syntax for referring to an external script
     called "xxx.js" ?`,
     options: [`&#60;script src="xxx.js"&#62;&#60;/script&#62;`,
-    `"script name="xxx.js"`,
+    `&#60;script name="xxx.js"/&#62;`,
     `&#60;script href="xxx.js"&#62;&#60;/script&#62;`,
 	    `&#60;js src="xxx.js"&#62;&#60;/js&#62;`],
     answer: `&#60;script src="xxx.js"&#62;&#60;/script&#62;`,

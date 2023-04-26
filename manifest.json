@@ -1,0 +1,16 @@
+{
+	"name":"pikin QuizApp",
+	"short_name":"PIKIN QUIZ",
+	"icons":[
+		{
+			"src": "./Assets/Images/pikinIcon.jpg",
+			"sizes":"3000x3000",
+			"type":"image/jpg"
+		}
+	],
+	"start_url":"/",
+	"display":"standalone"
+}
+
+
+
