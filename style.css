@@ -1,7 +1,7 @@
 
  @import
  url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
-
+ @import url('https://fonts.googleapis.com/css2?family=Sofia&family=Trirong:wght@100&display=swap');
  
 *{
   box-sizing:border-box;
@@ -15,6 +15,7 @@
    background-repeat-y: repeat;
    background-size: 100%;
    position: relative;
+   min-height: 100vh;
  }
  
 #preloader, #score-page {
@@ -156,6 +157,7 @@ header div h1{
 }
 .question {
   border: 1px solid orange;
+  border-radius: 10px;
   margin: 3%;
   height: 30%;
   display: flex;
@@ -241,7 +243,7 @@ header div h1{
   cursor: pointer;
   color: #fff;
   font-size: 4vmin;
-  font-family: cursive,courier,Sans-Serif;
+  font-family: "trirong", cursive,courier,Sans-Serif;
   font-weight: bold;
   margin: 3.2vmin;
   border-bottom: 1px solid #000;
