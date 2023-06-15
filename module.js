@@ -121,20 +121,7 @@ $.unRoll = function(txt,display,duration=100){
     char += array.shift();
     display.textContent = char;
    if(isEmpty(array)){
-    // proceed.style.display = "block";
    	clearInterval(timer);
-   // let charset = Array.from(display.textContent);
-    
-   // let timer2 = setInterval(()=>{
-    //	charset.pop();
-    //	let reversedAction = charset.join("");
-     // display.textContent = reversedAction;
-      //  if(isEmpty(charset)){
-     // 	$.animateText("...",display,duration);
-     // 	clearInterval(timer2);
-    //  }
-   // },duration+200)
-   }
     
 },duration)
 
@@ -179,10 +166,23 @@ let option = [optionA,optionB,optionC,optionD];
   }
   write();
        ++i;
-      document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
+/*      document.querySelectorAll('input[name="answer"]').forEach(radbtn=>{
          radbtn.addEventListener("click",evt=>{
            document.querySelector(".btn1").style.display = "block";
          })
        })
+       */
+	  document.querySelector(".option").addEventListener("click", evt => {
+			document.querySelector(".btn1").style.display = "block";
+			let target = evt.target;
+			if(target.tagName !== "INPUT") {
+				let inputElem = target.querySelector("input");
+				inputElem.checked = true;
+			} else {
+				target.checked = true;
+
+			}
+			evt.stopPropagation();
+		}, true)
   }
 }
