@@ -116,14 +116,15 @@ $.updateProgress = function(progElement,value){
 
 $.unRoll = function(txt,display,duration=100){
 	let array = Array.from(txt);
-	let char = ""
+	let char = "";
     let timer = setInterval(()=>{
     char += array.shift();
     display.textContent = char;
    if(isEmpty(array)){
    	clearInterval(timer);
+   };
     
-},duration)
+},duration);
 
 }
 
