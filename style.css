@@ -2,6 +2,9 @@
  @import
  url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Sofia&family=Trirong:wght@100&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+ 
  
 *{
   box-sizing:border-box;
@@ -11,16 +14,24 @@
 }
 
  body {
-   background: #132040;
-   background-repeat-y: repeat;
-   background-size: 100%;
    position: relative;
    min-height: 100vh;
+	background-image: url(Assets/Images/7227553.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
  }
- 
+ body::before {
+ 	content: "";
+ 	position: absolute;
+ 	top:0;
+  left:0;
+ 	bottom:0;
+  right:0;
+  background: rgba(0,0,0,.8);
+ }
 #preloader, #score-page {
   height: 100vh;
-  background: #132030;
+  background:  #000;/*#132030;*/
   z-index: 100;
   position:fixed;
   top:0;
@@ -44,7 +55,7 @@
 #category {
   height: 100vh;
   z-index:99;
-  background:#132030;
+  background:#000;/*#132030;*/
   position:fixed;
   top:0;
   right:0;
@@ -67,19 +78,21 @@
   color: #fff;
 }
 .select ul li {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 5px;
 }
 nav {
+	position:absolute;
+	width:100vw;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
 }
-.logo h1, .logo sup{
+.logo h1{
   color:#fff;
   font-size:6vmin;
-  margin-left: 10px;
+  margin: 15px;
 }
 nav .material-icons {
   font-size:11vmin;
@@ -92,9 +105,11 @@ nav .cancel{
   display:none;
 }
 .count {
-/*  border: 1px solid blue;*/
+ /*background: ;*/
   width:100vw;
   height: 10vh;
+  margin: 1px;
+  border-radius: 10px;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -104,14 +119,14 @@ nav .cancel{
   z-index: 1 ;
 }
 .count .progress {
-  border: 1px solid #c1c1c1;
+  border: 2px solid #f0f0f0;
   width: 55%;
   height: 35%;
   margin-left: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
- /* background-color: #5f5f5f;*/
+  padding: 2px;
   position:relative;
   border-radius: 10px;
 }
@@ -119,26 +134,26 @@ nav .cancel{
   left: 47%;
   right: 47%;
   color: #fff;
-  font-family: cursive;
+  font-family: "sofia",cursive;
 }
 .count .timer {
-  border: 1px solid #c1c1c1;
+  border: 2px solid #f0f0f0;
+  font-size: 1.2rem;
   width:30%;
   height:35%;
   margin-right: 5px;
   color:#fff;
-  font-family: cursive, courier,'explora';
+  font-family: "sofia",cursive, courier,'explora';
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 4%;
+  border-radius: 10px;
 }
 
 #quest-con {
- /* border: 1px solid red;*/
   position: absolute;
   width: 100vw;
-  height: 50vh;
+  max-height: 55vh;
   top: 25vh;
 }
 header {
@@ -151,12 +166,15 @@ header {
 }
 header div h1{
   font-size: 6vmin;
-  font-family: "courier";
+  font-family: "tilt prism", "courier";
   font-weight: bold;
-  color: orange/*rgba(275,0,0,100%)*/;
+  color: #0ed902;
+  text-shadow: 1px 5px 2px #098231;
 }
+
 .question {
-  border: 1px solid orange;
+  border: 1.5px solid #c1c1c1;
+  background: #000335;
   border-radius: 10px;
   margin: 3%;
   height: 30%;
@@ -169,67 +187,66 @@ header div h1{
   overflow: scroll;
 }
 .question p {
-  font-family: courier;
+  font-family: "trirong",courier;
   font-weight: 800;
-  color: #fff;
+  color: #c1c1c1;
   margin: 2px;
   font-size: 4.5vmin;
 }
 .options {
-  /*border: 1px solid green;*/
   height: 55%;
   margin: 7% 1%;
-  /* display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;*/
-  
 }
 .option {
- /* border: 1px solid white;*/
- /* display: flex;
-  justify-content: space-between;
-  align-items: center;*/
   height: 45%;
   margin: 2%;
 }
 .optionA, .optionB, .optionC, .optionD {
-  border-bottom: 1px solid orange;
- /* width: 96%;*/
-  height: 50%;
- margin: 4px;
- /* border-radius: 20%;
-  color: #fff;*/
+  border-bottom: 2.5px solid #0ed902;
+  background: #000335;
+  border-radius: 10px;
+  height: 55%;
+ margin: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   overflow: scroll;
+  padding: 5px;
 }
 .opt p {
+	padding: 2px;
   margin-left: 10px;
   color: #fff;
-  font-family: "Courier New";
+  font-family: "trirong","courier New";
+  font-weight: 600;
   
 }
 
 
+
 .btn1 {
   position: absolute;
-  top: 80vh;
+  bottom: 12vh;
+  width: fit-content;
   left: 40vw;
   right: 40vw;
   border: 1px solid blue;
   background: blue;
-  box-shadow: 1px 2px 0 rgba(175,175,175);
+  border-radius: 5px;
+  box-shadow: 1px 2px 0 rgb(175,175,175);
   font-size: 5vmin;
   text-align: center;
-  font-family: courier, explora,cursive;
+  font-family:"tilt prism", courier, explora,cursive;
   color: #fff;
   display: none;
+  padding: 2px;
+  font-weight: 700;
 }
 .drop-down {
-  border: 1px solid #7e7e7e;
-  background: rgba(37,73,102,100%);
+  border: 1px solid #0b2648;
+  border-radius: 0 0 5px 5px;
+  background: #0b2648;
   position: absolute;
   width: 0;
   z-index: 98;
@@ -250,6 +267,7 @@ header div h1{
   list-style-type: none;
   text-align: center;
   background: rgba(105,136,160,100%);
+  border-radius: 5px;
 }
 
 
@@ -274,14 +292,12 @@ header div h1{
   width: 100vw;
   position: absolute;
   top: 38vh;
- /*border:1px solid blue;*/
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding:2px;
 }
 .correct, .wrong {
-  /*border: 1px solid green;*/
   display:flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -293,10 +309,11 @@ header div h1{
   font-size: 4vmin;
   color: #fff;
   text-align: center;
-  font-family: cursive;
+  font-family: "trirong",cursive;
 }
 .correct div, .wrong div {
-  border:1px solid red;
+  border:2px solid #0ed902;
+  border-radius: 5px;
   width: 15vw;
   height: 15vw;
   margin-top: 10px;
@@ -320,12 +337,13 @@ header div h1{
 }
 .score h1 {
   color : #fff;
-  font-family: cursive,"explora";
+  font-family: "trirong",cursive,"explora";
   font-size: 4vmin;
   text-align: center;
 }
 .score .score-board {
-  border: 1px solid blue;
+  border: 2px solid #0ed902;
+  border-radius: 5px;
   width: 15vw;
   height: 15vw;
   margin: 5px;
@@ -357,7 +375,8 @@ sup, sub {
   font-size: 3vmin;
 }
 code {
-	outline: 1px solid #fff;
+	border: 1px solid #fff;
+	border-radius: 10px;
 	display:block;
 	padding: 5px;
 	background-color: #000;
@@ -374,14 +393,19 @@ code {
 }
 .answer-page {
   color:blue;
-  font-family: cursive,courier,Sans-Serif;
+  font-family:"tilt prism",cursive,courier,Sans-Serif;
+  font-size: 5vmin;
+  font-weight: 700;
   width: 45vw;
   height: 4vh;
-  border-radius: 2%;
+  border-radius: 10px;
 }
 .questions-answers {
   z-index: 101;
-  border: 1px solid red;
+  left: 2px;
+  right: 2px;
+  padding: 10px;
+  border-radius: 10px;
   width: 100%;
   height: 36%;
   overflow: scroll;

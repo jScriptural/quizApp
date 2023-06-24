@@ -1,5 +1,4 @@
 import {$,id} from "./module.js";
-/*import {javascript,html,css,subjects,maths,chem,bio,eng,phy,python} from "./question.js";*/
 import {default as javascript, subjects} from "./Question/javascript.js";
 import html from "./Question/html.js";
 import css from "./Question/css.js";
@@ -26,25 +25,28 @@ let [interval,score,numOfCorrectAnswers,numOfWrongAnswers,k,selections] = [1000,
     position: absolute;
     top: 80vh;
     border: 1px solid blue;
+    border-radius: 5px;
     color: #fff;
     text-align: center;
-    font-family: courier;
+    font-family: "tilt prism";
+    font-weight: 700;
     font-size: 5vmin;
     left: 35vw;
     right: 35vw;
     background-color: blue;
     box-shadow: 1px 2px 0 rgba(175,175,175);
     display: none`;
-    proceed.innerHTML = "PROCEED&#8680;";
+    proceed.innerHTML = "PROCEED &#10151;";
 
     let logoCon = document.createElement("div");
     let logo = document.createElement("h1");
     logo.style.color = "#fff";
-    logo.style.marginLeft = "3px";
+    logo.style.margin = "15px";
+    logo.style.fontSize= "6vmin";
     logo.innerHTML =
-     `<h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1>`;
+     `&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup>`;
      logoCon.append(logo);
-   let text = "WELCOME TO PIKIN QUIZ           ";
+   let text = " PIKIN QUIZ         ";
    let display = document.createElement("h1");
    let animation = document.createElement("div");
    animation.append(display);
@@ -52,11 +54,11 @@ let [interval,score,numOfCorrectAnswers,numOfWrongAnswers,k,selections] = [1000,
    preloader.append(animation,logoCon,proceed);
     let interval = setInterval($.rotateColor(preloader),400);
     $.animateText(text,display);
-    globalThis.addEventListener("DOMContentLoaded",(evt)=>{
+    globalThis.addEventListener("load",(evt)=>{
       proceed.style.display = "block";
       proceed.addEventListener("click",(evt)=>{
         preloader.style.display = "none";
-        clearInterval(interval)
+        clearInterval(interval);
       });
     });
     
@@ -68,10 +70,10 @@ loader();
     let logoCon = document.querySelector(".logon");
     let logo = document.createElement("h1");
     logo.style.color = "#fff";
-    logo.style.fontSize = "22px";
-    logo.style.marginLeft = "3px";
+    logo.style.fontSize = "6vmin";
+    logo.style.margin = "15px";
     logo.innerHTML =
-     `<h1>&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup></h1>`;
+     `&#9439;&#9432;&#9434;&#9432;&#9437;<sup>&trade;</sup>`;
      logoCon.append(logo);
     let selector = document.querySelector(".select");
     let heading = document.createElement("h1");
@@ -82,6 +84,10 @@ loader();
     for(let subject of subjects){
       let li = document.createElement("li");
       li.classList.add("startul");
+      li.addEventListener("click",evt=>{
+      	if(evt.target !== li)return;
+      	li.firstElementChild.dispatchEvent(new MouseEvent("click"));
+      });
       li.innerHTML = `<input type="radio" name="options" value=${subject}>&nbsp;${subject}`;
       list.append(li);
     }
@@ -92,33 +98,38 @@ loader();
     let startBtn = document.createElement("div");
     startBtn.style.cssText = `
     position: absolute;
-    top: 80vh;
+    bottom: 20vh;
+    width: 100px;
     border: 1px solid blue;
+    border-radius: 5px;
     color: #fff;
     text-align: center;
-    font-family: courier;
+    font-family: "tilt prism";
+    font-weight:700;
     font-size: 5vmin;
-    left: 35vw;
-    right: 35vw;
     background-color: blue;
-    box-shadow: 1px 2px 0 rgba(175,175,175);
+    box-shadow: 1px 2px 0 rgb(175,175,175);
     display: none`;
-    startBtn.innerHTML = 'START&#8680;';
+   
+    startBtn.innerHTML = 'START &#10151;';
     categoryPage.append(startBtn);
-    
+     let prev;
     radiobuttons.forEach((radbutton)=>{
       radbutton.addEventListener('click',(evt)=>{
         directive.style.display = 'none';
         startBtn.style.display = "block";
-        
-        startBtn.addEventListener('click',(evt)=>{
+     if(!prev)startBtn.style.left=categoryPage.clientWidth/2-(startBtn.offsetWidth/2+startBtn.offsetLeft)+"px";
+       prev = evt.target;
+      });
+    });
+startBtn.addEventListener('click',(evt)=>{
             count();
           categoryPage.style.display = "none";
           radiobuttons.forEach((radbtn)=>{
             if(radbtn.checked){
               let checked = radbtn.value;
               document.querySelector("header div").innerHTML =
-              `<h1>${checked} Quiz</h1>`
+              `<h1>${checked} Quiz</h1>`;
               switch(checked){
                 case "JavaScript":
                   jsquiz();
@@ -144,27 +155,28 @@ loader();
                 case "Physics":
                   phyquiz();
                   break;
-		case "Python":
-	          pythonquiz();
-	          break;
-	        case "General-Knowledge":
-	          generalquiz();
-		  break;
+		            case "Python":
+	         				pythonquiz();
+	          			break;
+	        			case "General-Knowledge":
+	          			generalquiz();
+		  						break;
               }
             }
           })
         });
-      })
-    });
     let directive = document.createElement('h2');
     directive.innerHTML= `Please&nbsp;select&nbsp;a&nbsp;category...`;
     categoryPage.append(directive);
     directive.style.position = "absolute";
-    directive.style.top  = "70vh"
+    directive.style.width ="17rem";
+    directive.style.textAlign="center";
+    directive.style.bottom  = "20vh";
     directive.style.color = "#fff";
-    directive.style.left = "25vw";
-    directive.style.right = "25vw";
-    directive.style.fontSize = "1rem";
+    directive.style.color = "#e1a35f";
+    directive.style.fontSize = "1.2rem";
+    directive.style.left =
+    categoryPage.clientWidth/2-(directive.offsetWidth/2+directive.offsetLeft)+"px";
     
     
  }
@@ -190,7 +202,7 @@ category();
   
    menuBars.addEventListener('click',(evt)=>{
      menuCon.style.display = "block";
-     $.slideIn(menuCon,"50vw",1);
+     $.slideIn(menuCon,"60vw",1);
      menuBars.style.display = "none";
      cancel.style.display = "block";
    });
@@ -199,14 +211,7 @@ category();
      $.slideOut(menuCon,1);
      menuBars.style.display = "block";
      cancel.style.display = "none";
-   })
-   /*
-  cancel.addEventListener("click",(evt)=>{
-      $.slideOut(menuCon,1)
-      menuBars.style.display = "block";
-       cancel.style.display = "none";
    });
-   */
 let categories = document.querySelectorAll(".changeCategory");
     categories.forEach((list)=>{
       list.addEventListener("click",(evt)=>{
@@ -314,7 +319,8 @@ function count(){
   progress.style.height = "99%";
   progress.style.borderRadius = "10px";
   progress.style.width = "0%";
-  progress.style.backgroundColor= "#03a9f4";
+  progress.style.transition = "width .3s linear";
+  progress.style.backgroundColor= "#0ed902";
   progressbar.append(progress);
    globalThis.progressText = document.createElement("span");
   progressText.style.position = "absolute";

@@ -12,7 +12,6 @@ export function isEmpty(obj){
     char += array.shift();
     display.textContent = char;
    if(isEmpty(array)){
-    // proceed.style.display = "block";
    	clearInterval(timer);
     let charset = Array.from(display.textContent);
     
@@ -43,6 +42,7 @@ let boxes = [box1,box2,box4,box3];
 element.append(container);
 
 container.style.display = "grid";
+container.style.width = "10vw";
 container.style.gridTemplateRows= "1fr 1fr";
 container.style.gridTemplateColumns= "1fr 1fr";
 container.style.gridGap="2px";
@@ -50,16 +50,18 @@ container.style.JustifyContent = "center";
 container.style.alignItems = "center"
 container.style.position= "absolute";
 container.style.top= "30vh";
-container.style.left= "45vw";
+container.style.left= element.clientWidth/2 -
+container.offsetWidth/2-container.offsetLeft+"px";
 box4.style.gridRow = "2/3";
 box4.style.gridColumn = "2/3";
 for(let box of boxes){
   container.append(box)
 }
 for(let box of boxes){
-  box.style.border = "1px solid white";
-  box.style.height = "5vmin"
-  box.style.width = "5vmin";
+  box.style.border = "2px solid #fff";
+  box.style.borderRadius = "6px";
+  box.style.height = "6vmin"
+  box.style.width = "6vmin";
 }
 	let i = 0;
 	let colors = ["#c80000","#7db607","#f6b408","#04a1e8"]
