@@ -1,5 +1,8 @@
 import {$,id} from "./module.js";
-import {default as javascript, subjects} from "./Question/javascript.js";
+import subjects  from "./Question/subject.js";
+import javascript from "./Question/javascript.js";
+import computersc from "./Question/computerscience.js";
+import africanHistory from "./Question/africanHistory.js";
 import html from "./Question/html.js";
 import css from "./Question/css.js";
 import maths from "./Question/maths.js";
@@ -79,7 +82,7 @@ loader();
     let heading = document.createElement("h1");
     let list = document.createElement("ul");
     heading.textContent = 'Categories';
-    heading.style.fontSize= "1.3rem";
+    heading.style.fontSize= "1.5rem";
     selector.append(heading);
     for(let subject of subjects){
       let li = document.createElement("li");
@@ -155,12 +158,18 @@ startBtn.addEventListener('click',(evt)=>{
                 case "Physics":
                   phyquiz();
                   break;
-		            case "Python":
-	         				pythonquiz();
-	          			break;
-	        			case "General-Knowledge":
-	          			generalquiz();
-		  						break;
+		 case "Python":
+	          pythonquiz();
+	          break;
+	         case "General-Knowledge":
+	          generalquiz();
+		  break;
+	         case "African-History":
+	          africanquiz();
+	          break;
+		 case "Computer-Science":
+	          computerscquiz();
+	          break;
               }
             }
           })
@@ -222,12 +231,11 @@ let categories = document.querySelectorAll(".changeCategory");
              },100);
            },0);
       document.querySelector(".questions-answers").innerHTML = "";
-let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz,pythonuiz,generaluiz] =
-[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0)];
+let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz,pythonuiz,generaluiz,africanuiz,computerscuiz] =
+[$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(html,0),$.quiz(css,0),$.quiz(bio,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0),$.quiz(africanHistory,0),$.quiz(computersc,0)];
 
- [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz,phyquiz,pythonquiz,generalquiz] =
- [$.quiz(maths,1),$.quiz(javascript,1),$.quiz(chem,1),$.quiz(html,1),
- $.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1),$.quiz(python,1),$.quiz(general,1)];
+ [mathsquiz,jsquiz,chemquiz,htmlquiz,cssquiz,bioquiz,engquiz,phyquiz,pythonquiz,generalquiz,africanquiz,computerscquiz] =
+ [$.quiz(maths,1),$.quiz(javascript,1),$.quiz(chem,1),$.quiz(html,1),$.quiz(css,1),$.quiz(bio,1),$.quiz(eng,1),$.quiz(phy,1),$.quiz(python,1),$.quiz(general,1),$.quiz(africanHistory,1),$.quiz(computersc,1)];
          let clicked = list.innerText;
           selectedCategory = clicked;
        document.querySelector("header div").innerHTML = `<h1>${selectedCategory}</h1>`;
@@ -269,6 +277,13 @@ let [mathsuiz, jsuiz, chemuiz,htmluiz,cssuiz,biouiz,enguiz,phyuiz,pythonuiz,gene
 		case "General-Knowledge":
 		  generaluiz();
 		  break;
+		case "African-History":
+		  africanuiz();
+		  break;
+		case "Computer-Science":
+		  computerscuiz();
+	          break;
+			
 
               }
       });
@@ -372,6 +387,13 @@ function count(){
 		case "General-Knowledge":
 		   generalquiz();
 		   break;
+		case "African-History":
+		   africanquiz();
+		   break;
+		case "Computer-Science":
+		   computerscquiz();
+		   break;
+
 
               }
    submit.style.display = "none";
@@ -457,4 +479,4 @@ function scorePage(){
    });
 }
 
-let [mathsquiz,jsquiz,chemquiz,bioquiz,cssquiz,htmlquiz,engquiz,phyquiz,pythonquiz,generalquiz] = [$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(bio,0),$.quiz(css,0),$.quiz(html,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0)];
+let [mathsquiz,jsquiz,chemquiz,bioquiz,cssquiz,htmlquiz,engquiz,phyquiz,pythonquiz,generalquiz,africanquiz,computerscquiz] = [$.quiz(maths,0),$.quiz(javascript,0),$.quiz(chem,0),$.quiz(bio,0),$.quiz(css,0),$.quiz(html,0),$.quiz(eng,0),$.quiz(phy,0),$.quiz(python,0),$.quiz(general,0),$.quiz(africanHistory,0),$.quiz(computersc,0)];

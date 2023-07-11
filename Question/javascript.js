@@ -1,7 +1,4 @@
 
-export let subjects =
-["HTML","CSS","JavaScript","Maths","Physics","Chemistry","English","Biology","Python","General-Knowledge",`African-History`,];
-subjects.sort((a,b)=>a.localeCompare(b));
 
 let javascript =  [
   {
